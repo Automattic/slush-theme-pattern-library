@@ -1,10 +1,39 @@
-Recipe: Overall template bulder
+#Recipe: Overall template bulder
 
-Description: This contains all the templating that needs to be stuck back together.
+##Description: This contains all the templating that needs to be stuck back together.
 
-Notes: Each file that needs to have content pulled in has that content's path in a php comment.
+##Notes: Each file that needs to have content pulled in has that content's path in a php comment.
 
 
+###Ingredients
+- inc/
+- js/
+- languages/
+- styles (depends on Sass if one or more files : some Sass is also conditional)
+- 404.php
+- archive.php
+- comments.php
+- content-none.php
+- conent-page.php
+- content-search.php
+- content-single.php
+- content.php
+- footer.php
+- functions.php
+- header.php
+- index.php
+- LICENSE
+- page.php
+- README.md
+- rtl.css
+- screenshot.png
+- search-form.php
+- search.php
+- sidebar.php
+- single.php
+- style.css
+
+###Compiling:
 - single.php : elements/views/view-single.php
 - sidebar.php : elements/strucutres/sidebar.php
 - search.php : elements/views/view-search.php
@@ -23,3 +52,12 @@ Notes: Each file that needs to have content pulled in has that content's path in
 - comments.php : elements/structures/comments/comments-title.php and elements/structures/nav-comment-top.php elements/structures/comments/comments-list.php and elements/structures/nav-comment-below.php
 - archive.php : elements/views/view-archive.php
 - elements/views/view-archive.php : elements/structures/sections/not-found.php
+
+
+###Sass compiling for default:
+- _utilities/mixins: accessibility, alignments, clearings, global, normalize
+- bricks: buttons/buttons, forms/forms, lists/definition, ordered, unordered
+- media: captions, galleries, images, media
+- tables: tables
+- text: blockquote, headings, hr, paragraph, preformatted
+- variables: colors, fonts, typography
