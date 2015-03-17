@@ -1,22 +1,22 @@
 {
-    "name": "slush-slush-theme-pattern-library",
+    "name": "slush-theme-patterns",
     "description": "A Slush generator for the Theme Pattern Library",
     "version": "0.1.0",
-    "homepage": "https://github.com/danielrobert/slush-slush-theme-pattern-library",
+    "homepage": "https://github.com/Automattic/slush-theme-pattern-library",
     "author": {
         "name": "Automattic, Inc.",
-        "email": "danielwrobert@gmail.com"
+        "email": "themes@wordpress.com"
     },
     "repository": {
         "type": "git",
-        "url": "git://github.com/danielrobert/slush-slush-theme-pattern-library.git"
+        "url": "git://github.com/Automattic/slush-theme-pattern-library.git"
     },
     "bugs": {
-        "url": "https://github.com/danielrobert/slush-slush-theme-pattern-library/issues"
+        "url": "https://github.com/Automattic/slush-theme-pattern-library/issues"
     },
     "licenses": [{
         "type": "MIT",
-        "url": "https://github.com/danielrobert/slush-slush-theme-pattern-library/blob/master/LICENSE"
+        "url": "https://github.com/Automattic/slush-theme-pattern-library/blob/master/LICENSE"
     }],
     "main": "slushfile.js",
     "engines": {
