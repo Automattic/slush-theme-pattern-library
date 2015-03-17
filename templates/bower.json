@@ -1,0 +1,26 @@
+{
+  "name": "slush-theme-pattern-library",
+  "version": "0.1.0",
+  "description": "A Slush generator for the Theme Pattern Library.",
+  "homepage": "https://github.com/Automattic/slush-theme-pattern-library",
+  "author": {
+    "name": "Automattic",
+    "email": "themes@wordpress.com",
+    "url": "http://automattic.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Automattic/slush-theme-pattern-library.git"
+  },
+  "license": "GPL-2.0",
+  "ignore": [
+    ".gitignore",
+    ".npmignore",
+    ".npmignore",
+    ".travis.yml",
+    "gulpfile.js"
+  ],
+  "dependencies": {
+    "theme-pattern-library": "Automattic/theme-pattern-library",
+  }
+}
