@@ -7,3 +7,4 @@ Ingredients:
 - Template: just first post on front
 - Custom header: large front page
 - Background cover featured images
+- Social menu (genericons)
