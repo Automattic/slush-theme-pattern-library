@@ -65,6 +65,12 @@ gulp.task('default', function (done) {
         message: 'What is the github username?',
         default: defaults.userName
     }, {
+        type: 'list',
+        name: 'genericons',
+        message: 'Do you want to include Genericons',
+        choices: ['Yes', 'No'],
+        default: 'Yes'
+    }, {
         type: 'confirm',
         name: 'moveon',
         message: 'Continue?'
