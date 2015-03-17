@@ -3,7 +3,7 @@
 Folder name: types/featurephoto
 
 ##Description: A theme with featured image large photos on each post.
-Themes like: Ryu, Harmonic, Resonar, Intergalatic.
+Themes like: Harmonic, Resonar, Intergalatic.
 
 ###Ingredients:
 - Template: just first post on front
