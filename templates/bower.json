@@ -13,7 +13,9 @@
     ".travis.yml",
     "gulpfile.js"
   ],
-  "dependencies": { <% if ( genericons == "Yes" ) { %>,
-    "Genericons": "Automattic/Genericons" <% } %>
+  "dependencies": {
+    <% if ( genericons == "Yes" ) { %>
+    "Genericons": "https://github.com/Automattic/Genericons.git"
+    <% } %>
   }
 }
