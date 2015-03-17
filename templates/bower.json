@@ -22,5 +22,6 @@
   ],
   "dependencies": {
     "theme-pattern-library": "Automattic/theme-pattern-library",
+    "Genericons": "Automattic/Genericons"
   }
 }
