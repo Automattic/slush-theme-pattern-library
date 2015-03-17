@@ -4,7 +4,6 @@
 
 ##Notes: Each file that needs to have content pulled in has that content's path in a php comment.
 
-
 ###Ingredients
 - inc/
 - js/
@@ -61,3 +60,6 @@
 - tables: tables
 - text: blockquote, headings, hr, paragraph, preformatted
 - variables: colors, fonts, typography
+
+Task:
+- Replace all instances of atomic_s with the themename someone supplies?
