@@ -13,8 +13,7 @@
     ".travis.yml",
     "gulpfile.js"
   ],
-  "dependencies": {
-    "theme-pattern-library": "Automattic/theme-pattern-library",
-    "Genericons": "Automattic/Genericons"
+  "dependencies": { <% if ( genericons == "Yes" ) { %>,
+    "Genericons": "Automattic/Genericons" <% } %>
   }
 }
