@@ -55,11 +55,37 @@
 
 ###Sass compiling for default:
 - _utilities/mixins: accessibility, alignments, clearings, global, normalize
-- bricks: buttons/buttons, forms/forms, lists/definition, ordered, unordered
-- media: captions, galleries, images, media
-- tables: tables
-- text: blockquote, headings, hr, paragraph, preformatted
-- variables: colors, fonts, typography
+- bricks:
+-- buttons/buttons
+-- forms/forms
+-- lists/definition
+-- ordered
+-- unordered
+-- media: captions, galleries, images, media
+-- tables: tables
+-- text: blockquote, headings, hr, paragraph, preformatted
+-- variables: colors, fonts, typography
+- buildings:
+-- forms/comment
+-- forms/search
+-- layout/asides
+-- layout/infinite-scroll
+-- layout/pages
+-- layout/posts
+-- navigation/content
+-- navigation/links
+-- navigation/mobile
+-- navigation/social
+- structures
+-- comments/comments
+-- global/footer
+-- global/header
+-- parts/widgets
+- views
+-- views/variables/layout
+-- views/article
+-- views/blog
+-- views/frontpage
 
 Task:
 - Replace all instances of atomic_s with the themename someone supplies?
