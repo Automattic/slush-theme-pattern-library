@@ -12,12 +12,17 @@ Themes like: Harmonic, Resonar, Intergalatic.
 - Social menu (genericons)
 
 ###Special files to call on top of default:
-- content-single.php : types/featurephoto/strucutres/article/article-featurephoto-single.php
+- content-single.php : types/featurephoto/structres/article/article-featurephoto-single.php
+- types/featurephoto/structures/global/header.php (includes social menu)
 
 ###Sass:
 - types/featurephoto/views/article/article-featurephoto-single (compiles to article.scss)
+- styles/bricks/text/genericons (for menu)
+- styles/builings/navigation/social
 
 Task:
 - Replace all instances of atomic_s with the themename someone supplies?
-- Add thumbnail large size to the actual function.php:
+- Functions.php (diff version in types but could do with automating)
+-- Add thumbnail large size to the actual function.php:
 //add_image_size( 'atomic_s-large', 2000, 1500, true  );
+-- Add new menu to the list:
