@@ -1,6 +1,6 @@
 /*
- * slush-slush-theme-pattern-library
- * https://github.com/danielrobert/slush-slush-theme-pattern-library
+ * slush-theme-patterns
+ * https://github.com/Automattic/slush-theme-pattern-library
  *
  * Copyright (c) 2015, Automattic, Inc.
  * Licensed under the MIT license.
@@ -36,7 +36,8 @@ var defaults = (function () {
         appName: workingDirName,
         userName: osUserName || format(user.name || ''),
         authorName: user.name || '',
-        authorEmail: user.email || ''
+        authorEmail: user.email || '',
+        authorURI: 'http://underscores.me'
     };
 })();
 
@@ -60,6 +61,10 @@ gulp.task('default', function (done) {
         name: 'authorEmail',
         message: 'What is the author email?',
         default: defaults.authorEmail
+    }, {
+        name: 'authorURI',
+        message: 'What is the author URI?',
+        default: defaults.authorURI
     }, {
         name: 'userName',
         message: 'What is the github username?',
