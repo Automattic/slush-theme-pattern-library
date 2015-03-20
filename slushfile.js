@@ -111,7 +111,6 @@ gulp.task('default', function (done) {
                     prefix: '@@',
                     basepath: __dirname + '/templates',
                     context: {
-                        appNameSlug: answers.appNameSlug,
                         siteBranding: answers.siteBranding,
                         primaryNav: answers.primaryNav,
                         customHeader: answers.customHeader
