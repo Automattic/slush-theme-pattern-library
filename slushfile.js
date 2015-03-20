@@ -109,7 +109,13 @@ gulp.task('default', function (done) {
                 .pipe(template(answers))
                 .pipe(include({
                     prefix: '@@',
-                    basepath: __dirname + '/templates'
+                    basepath: __dirname + '/templates',
+                    context: {
+                        appNameSlug: answers.appNameSlug,
+                        siteBranding: answers.siteBranding,
+                        primaryNav: answers.primaryNav,
+                        customHeader: answers.customHeader
+                    }
                 }))
                 .pipe(rename(function (file) {
                     if (file.basename[0] === '_') {
