@@ -11,19 +11,19 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="hfeed site">
-	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', '<%= appNameSlug %>' ); ?></a>
+	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', $appSlug ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">
-		<% if( siteBranding == "Yes" ) { %>
+		@@if( siteBranding === "Yes" ) {
 			@@include( './elements/structures/global/branding.php' )
-		<% } %>
-		<% if( primaryNav == "Yes" ) { %>
+		}
+		@@if( primaryNav === "Yes" ) {
 			@@include( './elements/buildings/navigation/nav-primary.php' )
-		<% } %>
+		}
 	</header><!-- #masthead -->
 
-	<% if( customHeader == "Yes" ) { %>
+	@@if( customHeader === "Yes" ) {
 		@@include( './elements/structures/global/customheader.php' )
-	<% } %>
+	}
 
 	<div id="content" class="site-content">
