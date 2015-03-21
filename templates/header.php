@@ -7,6 +7,6 @@
  * @package <%= appName %>
  */
 
-$appSlug = '<%= appNameSlug %>';
-
-@@include( './elements/structures/global/header.php' )
+@@include( './elements/structures/global/header.php', {
+	"appNameSlug": "<%= appNameSlug %>"
+} )
