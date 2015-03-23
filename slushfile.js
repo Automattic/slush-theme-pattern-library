@@ -12,6 +12,7 @@ var gulp = require('gulp'),
     install = require('gulp-install'),
     conflict = require('gulp-conflict'),
     template = require('gulp-template'),
+    include = require('gulp-file-include'),
     rename = require('gulp-rename'),
     _ = require('underscore.string'),
     inquirer = require('inquirer');
@@ -36,8 +37,7 @@ var defaults = (function () {
         appName: workingDirName,
         userName: osUserName || format(user.name || ''),
         authorName: user.name || '',
-        authorEmail: user.email || '',
-        authorURI: 'http://underscores.me'
+        authorEmail: user.email || ''
     };
 })();
 
@@ -64,7 +64,7 @@ gulp.task('default', function (done) {
     }, {
         name: 'authorURI',
         message: 'What is the author URI?',
-        default: defaults.authorURI
+        default: 'http://underscores.me'
     }, {
         name: 'userName',
         message: 'What is the github username?',
@@ -72,7 +72,25 @@ gulp.task('default', function (done) {
     }, {
         type: 'list',
         name: 'genericons',
-        message: 'Do you want to include Genericons',
+        message: 'Do you want to include Genericons?',
+        choices: ['Yes', 'No'],
+        default: 'Yes'
+    }, {
+        type: 'list',
+        name: 'siteBranding',
+        message: 'Do you want to include site branding?',
+        choices: ['Yes', 'No'],
+        default: 'Yes'
+    }, {
+        type: 'list',
+        name: 'primaryNav',
+        message: 'Do you want to include a primary navigation menu?',
+        choices: ['Yes', 'No'],
+        default: 'Yes'
+    }, {
+        type: 'list',
+        name: 'customHeader',
+        message: 'Do you want to include a Custom Header?',
         choices: ['Yes', 'No'],
         default: 'Yes'
     }, {
@@ -89,6 +107,15 @@ gulp.task('default', function (done) {
             answers.appNameSlug = _.slugify(answers.appName);
             gulp.src(__dirname + '/templates/**')
                 .pipe(template(answers))
+                .pipe(include({
+                    prefix: '@@',
+                    basepath: __dirname + '/templates',
+                    context: {
+                        siteBranding: answers.siteBranding,
+                        primaryNav: answers.primaryNav,
+                        customHeader: answers.customHeader
+                    }
+                }))
                 .pipe(rename(function (file) {
                     if (file.basename[0] === '_') {
                         file.basename = '.' + file.basename.slice(1);
