@@ -5,11 +5,27 @@
 
 ## Getting Started
 
-Install `slush-theme-patterns` globally:
+Make sure [Slush](https://github.com/slushjs/slush) is installed globally.
 
 ```bash
-$ npm install -g slush-theme-patterns
+npm install -g slush
 ```
+
+Clone this repository.
+
+```bash
+git clone https://github.com/Automattic/slush-theme-pattern-library.git
+```
+
+Go into that directory and link it with NPM.
+
+
+```bash
+cd slush-theme-pattern-library
+npm link
+```
+
+Now, you're ready to use the generator.
 
 ### Usage
 
