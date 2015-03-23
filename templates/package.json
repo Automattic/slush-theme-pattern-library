@@ -1,0 +1,7 @@
+{
+    "name": "<%= appNameSlug %>",
+    "version": "<%= appVersion %>",
+    "devDependencies": {
+        "gulp": "^3.8.11"
+    }
+}

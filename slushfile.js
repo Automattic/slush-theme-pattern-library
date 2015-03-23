@@ -1,6 +1,6 @@
 /*
- * slush-slush-theme-pattern-library
- * https://github.com/danielrobert/slush-slush-theme-pattern-library
+ * slush-theme-patterns
+ * https://github.com/Automattic/slush-theme-pattern-library
  *
  * Copyright (c) 2015, Automattic, Inc.
  * Licensed under the MIT license.
@@ -12,6 +12,7 @@ var gulp = require('gulp'),
     install = require('gulp-install'),
     conflict = require('gulp-conflict'),
     template = require('gulp-template'),
+    include = require('gulp-file-include'),
     rename = require('gulp-rename'),
     _ = require('underscore.string'),
     inquirer = require('inquirer');
@@ -22,20 +23,11 @@ function format(string) {
 }
 
 var defaults = (function () {
-    var workingDirName = path.basename(process.cwd()),
-      homeDir, osUserName, configFile, user;
-
-    if (process.platform === 'win32') {
-        homeDir = process.env.USERPROFILE;
-        osUserName = process.env.USERNAME || path.basename(homeDir).toLowerCase();
-    }
-    else {
-        homeDir = process.env.HOME || process.env.HOMEPATH;
-        osUserName = homeDir && homeDir.split('/').pop() || 'root';
-    }
-
-    configFile = path.join(homeDir, '.gitconfig');
-    user = {};
+    var homeDir = process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE,
+        workingDirName = process.cwd().split('/').pop().split('\\').pop(),
+        osUserName = homeDir && homeDir.split('/').pop() || 'root',
+        configFile = homeDir + '/.gitconfig',
+        user = {};
 
     if (require('fs').existsSync(configFile)) {
         user = require('iniparser').parseSync(configFile).user;
@@ -70,9 +62,37 @@ gulp.task('default', function (done) {
         message: 'What is the author email?',
         default: defaults.authorEmail
     }, {
+        name: 'authorURI',
+        message: 'What is the author URI?',
+        default: 'http://underscores.me'
+    }, {
         name: 'userName',
         message: 'What is the github username?',
         default: defaults.userName
+    }, {
+        type: 'list',
+        name: 'genericons',
+        message: 'Do you want to include Genericons?',
+        choices: ['Yes', 'No'],
+        default: 'Yes'
+    }, {
+        type: 'list',
+        name: 'siteBranding',
+        message: 'Do you want to include site branding?',
+        choices: ['Yes', 'No'],
+        default: 'Yes'
+    }, {
+        type: 'list',
+        name: 'primaryNav',
+        message: 'Do you want to include a primary navigation menu?',
+        choices: ['Yes', 'No'],
+        default: 'Yes'
+    }, {
+        type: 'list',
+        name: 'customHeader',
+        message: 'Do you want to include a Custom Header?',
+        choices: ['Yes', 'No'],
+        default: 'Yes'
     }, {
         type: 'confirm',
         name: 'moveon',
@@ -87,6 +107,15 @@ gulp.task('default', function (done) {
             answers.appNameSlug = _.slugify(answers.appName);
             gulp.src(__dirname + '/templates/**')
                 .pipe(template(answers))
+                .pipe(include({
+                    prefix: '@@',
+                    basepath: __dirname + '/templates',
+                    context: {
+                        siteBranding: answers.siteBranding,
+                        primaryNav: answers.primaryNav,
+                        customHeader: answers.customHeader
+                    }
+                }))
                 .pipe(rename(function (file) {
                     if (file.basename[0] === '_') {
                         file.basename = '.' + file.basename.slice(1);
