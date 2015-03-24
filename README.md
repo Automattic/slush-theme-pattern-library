@@ -5,10 +5,28 @@
 
 ## Getting Started
 
-Make sure [Slush](https://github.com/slushjs/slush) is installed globally.
+Slush is built on [Node.js](https://nodejs.org/) and [Gulp.js](http://gulpjs.com/). In order to get up and running, you will first need to make sure these are installed globally.
+
+You can head over to the Node.js homepage and install the latest version from there (the green "INSTALL" button). That will give you both Node.js and NPM (Node Package Manager).
+
+* If you are receiving a permissions error, you may need to run these installation commands as `sudo`. For example, `sudo npm install -g gulp`.
+
+Once you have Node installed, you can install Gulp.js as a global package.
+
+```bash
+$ npm install -g gulp
+```
+
+Then make sure [Slush](https://github.com/slushjs/slush) is installed globally.
 
 ```bash
 $ npm install -g slush
+```
+
+Additionally, to pull in any additional dependencies, such as Genericons, you will need to have Bower installed globally.
+
+```bash
+$ npm install -g bower
 ```
 
 Clone this repository.
@@ -16,6 +34,8 @@ Clone this repository.
 ```bash
 $ git clone https://github.com/Automattic/slush-theme-pattern-library.git
 ```
+
+Note that, performing Git operations over HTTPS may require you to [create a personal access token](https://help.github.com/articles/git-automation-with-oauth-tokens/).
 
 Go into that directory and link it with NPM.
 
@@ -29,7 +49,7 @@ Now, you're ready to use the generator.
 
 ### Usage
 
-Create a new folder for your project:
+Anywhere *outside* of the Slush generator folder, create a new folder for your project:
 
 ```bash
 $ mkdir my-new-project
