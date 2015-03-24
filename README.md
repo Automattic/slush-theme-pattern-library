@@ -35,7 +35,7 @@ Clone this repository.
 $ git clone https://github.com/Automattic/slush-theme-pattern-library.git
 ```
 
-Note that, performing Git operations over HTTPS may require you to [create a personal access token](https://help.github.com/articles/git-automation-with-oauth-tokens/).
+Note that, performing Git operations over HTTPS may require you to [create a personal access token](https://help.github.com/articles/creating-an-access-token-for-command-line-use/).
 
 Go into that directory and link it with NPM.
 
