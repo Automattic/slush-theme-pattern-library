@@ -2,7 +2,7 @@
 /**
  * The sidebar containing the main widget area.
  *
- * @package <%= appName =>
+ * @package <%= appName %>
  */
 
 if ( ! is_active_sidebar( 'sidebar-1' ) ) {

@@ -2,7 +2,7 @@
 /**
  * The template for displaying search results pages.
  *
- * @package <%= appName =>
+ * @package <%= appName %>
  */
 
 get_header(); ?>

@@ -4,7 +4,7 @@
  *
  * Contains the closing of the #content div and all content after
  *
- * @package <%= appName =>
+ * @package <%= appName %>
  */
 
 ?>
@@ -14,6 +14,11 @@
 	<footer id="colophon" class="site-footer" role="contentinfo">
 
 		<!-- INSERT: site-info/site-info.php -->
+		@@include( './elements/structures/global/header.php', {
+			"appNameSlug": "<%= appNameSlug %>",
+			"authorName": "<%= authorName %>",
+			"authorURI": "<%= authorURI %>"
+		} )
 
 	</footer><!-- #colophon -->
 </div><!-- #page -->

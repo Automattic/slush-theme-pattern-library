@@ -9,11 +9,11 @@ Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-A starter theme called <%= appName =>.
+A starter theme called <%= appName %>.
 
 == Description ==
 
-<%= appDescription =>
+<%= appDescription %>
 
 == Installation ==
 	
@@ -25,7 +25,7 @@ A starter theme called <%= appName =>.
 
 = Does this theme support any plugins? =
 
-<%= appName => includes support for Infinite Scroll in Jetpack.
+<%= appName %> includes support for Infinite Scroll in Jetpack.
 
 == Changelog ==
 

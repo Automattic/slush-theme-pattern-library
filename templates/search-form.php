@@ -2,7 +2,7 @@
 /**
  * The template for displaying search forms in Madre
  *
- * @package <%= appName =>
+ * @package <%= appName %>
  */
 ?>
 

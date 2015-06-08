@@ -2,7 +2,7 @@
 /**
  * The template for displaying all single posts.
  *
- * @package <%= appName =>
+ * @package <%= appName %>
  */
 
 get_header(); ?>
