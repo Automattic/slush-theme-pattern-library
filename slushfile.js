@@ -44,8 +44,12 @@ var defaults = (function () {
 gulp.task('default', function (done) {
     var prompts = [{
         name: 'appName',
-        message: 'What is the name of your project?',
+        message: 'What is the name of your theme?',
         default: defaults.appName
+    }, {
+        name: 'appURI',
+        message: 'What is the theme URI?',
+        default: 'http://underscores.me'
     }, {
         name: 'appDescription',
         message: 'What is the description?'
