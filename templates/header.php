@@ -30,7 +30,7 @@
 		} )
 
 		<!-- INSERT: top-navigation/top-navigation.php -->
-		@@include( './componenets/top-navigation/top-navigation.php', {
+		@@include( './components/top-navigation/top-navigation.php', {
 			"appNameSlug": "<%= appNameSlug %>"
 		} )
 
