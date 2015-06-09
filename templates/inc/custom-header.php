@@ -11,37 +11,37 @@
 	</a>
 	<?php endif; // End header image check. ?>
  *
- * @package component_s
+ * @package <%= appName %>
  */
 
 /**
  * Set up the WordPress core custom header feature.
  *
- * @uses component_s_header_style()
- * @uses component_s_admin_header_style()
- * @uses component_s_admin_header_image()
+ * @uses <%= appNameSlug %>_header_style()
+ * @uses <%= appNameSlug %>_admin_header_style()
+ * @uses <%= appNameSlug %>_admin_header_image()
  */
-function component_s_custom_header_setup() {
-	add_theme_support( 'custom-header', apply_filters( 'component_s_custom_header_args', array(
+function <%= appNameSlug %>_custom_header_setup() {
+	add_theme_support( 'custom-header', apply_filters( '<%= appNameSlug %>_custom_header_args', array(
 		'default-image'          => '',
 		'default-text-color'     => '000000',
 		'width'                  => 1000,
 		'height'                 => 250,
 		'flex-height'            => true,
-		'wp-head-callback'       => 'component_s_header_style',
-		'admin-head-callback'    => 'component_s_admin_header_style',
-		'admin-preview-callback' => 'component_s_admin_header_image',
+		'wp-head-callback'       => '<%= appNameSlug %>_header_style',
+		'admin-head-callback'    => '<%= appNameSlug %>_admin_header_style',
+		'admin-preview-callback' => '<%= appNameSlug %>_admin_header_image',
 	) ) );
 }
-add_action( 'after_setup_theme', 'component_s_custom_header_setup' );
+add_action( 'after_setup_theme', '<%= appNameSlug %>_custom_header_setup' );
 
-if ( ! function_exists( 'component_s_header_style' ) ) :
+if ( ! function_exists( '<%= appNameSlug %>_header_style' ) ) :
 /**
  * Styles the header image and text displayed on the blog
  *
- * @see component_s_custom_header_setup().
+ * @see <%= appNameSlug %>_custom_header_setup().
  */
-function component_s_header_style() {
+function <%= appNameSlug %>_header_style() {
 	$header_text_color = get_header_textcolor();
 
 	// If no custom options for text are set, let's bail
@@ -74,15 +74,15 @@ function component_s_header_style() {
 	</style>
 	<?php
 }
-endif; // component_s_header_style
+endif; // <%= appNameSlug %>_header_style
 
-if ( ! function_exists( 'component_s_admin_header_style' ) ) :
+if ( ! function_exists( '<%= appNameSlug %>_admin_header_style' ) ) :
 /**
  * Styles the header image displayed on the Appearance > Header admin panel.
  *
- * @see component_s_custom_header_setup().
+ * @see <%= appNameSlug %>_custom_header_setup().
  */
-function component_s_admin_header_style() {
+function <%= appNameSlug %>_admin_header_style() {
 ?>
 	<style type="text/css">
 		.appearance_page_custom-header #headimg {
@@ -102,15 +102,15 @@ function component_s_admin_header_style() {
 	</style>
 <?php
 }
-endif; // component_s_admin_header_style
+endif; // <%= appNameSlug %>_admin_header_style
 
-if ( ! function_exists( 'component_s_admin_header_image' ) ) :
+if ( ! function_exists( '<%= appNameSlug %>_admin_header_image' ) ) :
 /**
  * Custom header image markup displayed on the Appearance > Header admin panel.
  *
- * @see component_s_custom_header_setup().
+ * @see <%= appNameSlug %>_custom_header_setup().
  */
-function component_s_admin_header_image() {
+function <%= appNameSlug %>_admin_header_image() {
 ?>
 	<div id="headimg">
 		<h1 class="displaying-header-text">
@@ -123,4 +123,4 @@ function component_s_admin_header_image() {
 	</div>
 <?php
 }
-endif; // component_s_admin_header_image
+endif; // <%= appNameSlug %>_admin_header_image
