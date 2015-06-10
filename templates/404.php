@@ -12,7 +12,7 @@ get_header(); ?>
 
 			<!-- INSERT: error/error.php -->
 		@@include( './components/error/error.php', {
-			"appNameSlug": "<%= appNameSlug %>"
+			"appNameSlug": "@@appNameSlug"
 		} )
 
 		</main><!-- #main -->
