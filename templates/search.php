@@ -13,6 +13,9 @@ get_header(); ?>
 		<?php if ( have_posts() ) : ?>
 
 			<!-- INSERT: search-header/search-header.php -->
+			@@include( './components/search-header/search-header.php', {
+				"appNameSlug": "<%= appNameSlug %>"
+			} )
 
 			<?php /* Start the Loop */ ?>
 			<?php while ( have_posts() ) : the_post(); ?>
@@ -23,7 +26,7 @@ get_header(); ?>
 				 * If you want to overload this in a child theme then include a file
 				 * called content-search.php and that will be used instead.
 				 */
-				get_template_part( 'components/content', 'search' );
+				get_template_part( 'template-parts/content', 'search' );
 				?>
 
 			<?php endwhile; ?>
@@ -32,7 +35,7 @@ get_header(); ?>
 
 		<?php else : ?>
 
-			<?php get_template_part( 'components/content', 'none' ); ?>
+			<?php get_template_part( 'template-parts/content', 'none' ); ?>
 
 		<?php endif; ?>
 
