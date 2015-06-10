@@ -10,9 +10,9 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
-			<!-- INSERT: error/error.php -->
+		<!-- INSERT: error/error.php -->
 		@@include( './components/error/error.php', {
-			"appNameSlug": "@@appNameSlug"
+			"appNameSlug": "<%= appNameSlug %>"
 		} )
 
 		</main><!-- #main -->

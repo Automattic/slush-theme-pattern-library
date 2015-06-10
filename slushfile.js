@@ -15,7 +15,8 @@ var gulp = require('gulp'),
     include = require('gulp-file-include'),
     rename = require('gulp-rename'),
     _ = require('underscore.string'),
-    inquirer = require('inquirer');
+    inquirer = require('inquirer'),
+	del = require('del');
 
 function format(string) {
     var username = string.toLowerCase();
@@ -127,6 +128,7 @@ gulp.task('default', function (done) {
                 }))
                 .pipe(conflict('./'))
                 .pipe(gulp.dest('./'))
+				.pipe(del(['components']))
                 .pipe(install())
                 .on('end', function () {
                     done();
