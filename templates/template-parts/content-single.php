@@ -2,7 +2,7 @@
 /**
  * Template part for displaying single posts.
  *
- * @package Underscores Reference
+ * @package <%= appName %>
  */
 
 ?>
@@ -12,7 +12,7 @@
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
 		<div class="entry-meta">
-			<?php underscores_reference_posted_on(); ?>
+			<?php <%= appNameSlug %>_posted_on(); ?>
 		</div><!-- .entry-meta -->
 	</header><!-- .entry-header -->
 
@@ -20,14 +20,14 @@
 		<?php the_content(); ?>
 		<?php
 			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'underscores-reference' ),
+				'before' => '<div class="page-links">' . esc_html__( 'Pages:', '<%= appNameSlug %>' ),
 				'after'  => '</div>',
 			) );
 		?>
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php underscores_reference_entry_footer(); ?>
+		<?php <%= appNameSlug %>_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
 

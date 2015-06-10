@@ -1,0 +1,21 @@
+{
+	"name": "<%= appNameSlug %>",
+	"version": "<%= appVersion %>",
+	"description": "<%= appDescription %>",
+	"author": {
+		"name": "<%= authorName %>",
+		"email": "<%= authorEmail %>"
+	},
+	"ignore": [
+	".gitignore",
+	".npmignore",
+	".npmignore",
+	".travis.yml",
+	"gulpfile.js"
+	],
+	"dependencies": {
+		<% if ( genericons == "Yes" ) { %>
+		"Genericons": "https://github.com/Automattic/Genericons.git"
+		<% } %>
+	}
+}
