@@ -14,8 +14,6 @@
 	"gulpfile.js"
 	],
 	"dependencies": {
-		<% if ( genericons == "Yes" ) { %>
 		"Genericons": "https://github.com/Automattic/Genericons.git"
-		<% } %>
 	}
 }

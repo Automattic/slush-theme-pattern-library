@@ -75,12 +75,6 @@ gulp.task('default', function (done) {
         default: defaults.userName
     }, {
         type: 'list',
-        name: 'genericons',
-        message: 'Do you want to include Genericons?',
-        choices: ['Yes', 'No'],
-        default: 'Yes'
-    }, {
-        type: 'list',
         name: 'siteBranding',
         message: 'Do you want to include site branding?',
         choices: ['Yes', 'No'],
