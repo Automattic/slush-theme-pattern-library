@@ -17,10 +17,10 @@ var gulp = require('gulp'),
     _ = require('underscore.string'),
     inquirer = require('inquirer');
 
-function format(string) {
+var format = function(string) {
     var username = string.toLowerCase();
     return username.replace(/\s/g, '');
-}
+};
 
 var defaults = (function () {
     var homeDir = process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE,
