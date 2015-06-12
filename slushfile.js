@@ -52,22 +52,22 @@ gulp.task('default', function (done) {
         default: 'http://underscores.me'
     }, {
         name: 'appDescription',
-        message: 'What is the description?'
+        message: 'What is the theme description?'
     }, {
         name: 'appVersion',
-        message: 'What is the version of your project?',
+        message: 'What is the version of your theme?',
         default: '0.1.0'
     }, {
         name: 'authorName',
-        message: 'What is the author name?',
+        message: 'What is the theme author name?',
         default: defaults.authorName
     }, {
         name: 'authorEmail',
-        message: 'What is the author email?',
+        message: 'What is the theme author email?',
         default: defaults.authorEmail
     }, {
         name: 'authorURI',
-        message: 'What is the author URI?',
+        message: 'What is the theme author URI?',
         default: 'http://underscores.me'
     }, {
         type: 'list',
