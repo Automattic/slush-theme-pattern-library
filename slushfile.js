@@ -70,10 +70,6 @@ gulp.task('default', function (done) {
         message: 'What is the author URI?',
         default: 'http://underscores.me'
     }, {
-        name: 'userName',
-        message: 'What is the github username?',
-        default: defaults.userName
-    }, {
         type: 'list',
         name: 'siteBranding',
         message: 'Do you want to include site branding?',
