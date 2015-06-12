@@ -9,41 +9,28 @@ Slush is built on [Node.js](https://nodejs.org/) and [Gulp.js](http://gulpjs.com
 
 You can head over to the Node.js homepage and install the latest version from there (the green "INSTALL" button). That will give you both Node.js and NPM (Node Package Manager).
 
-* If you are receiving a permissions error, you may need to run these installation commands as `sudo`. For example, `sudo npm install -g gulp`.
-
-Once you have Node installed, you can install Gulp.js as a global package.
+Once you have Node installed, you can install the global dependencies (Gulp and [Slush](https://github.com/slushjs/slush)) with the following command:
 
 ```bash
-$ npm install -g gulp
+$ npm install -g gulp slush
 ```
 
-Then make sure [Slush](https://github.com/slushjs/slush) is installed globally.
+Then you'll want to clone this repository (this is a temporary step and will not be needed once the generator is moved to a public [NPM](https://www.npmjs.com/) package).
 
 ```bash
-$ npm install -g slush
-```
-
-Additionally, to pull in any additional dependencies, such as Genericons, you will need to have Bower installed globally.
-
-```bash
-$ npm install -g bower
-```
-
-Clone this repository.
-
-```bash
-$ git clone https://github.com/Automattic/slush-theme-pattern-library.git
+$ git clone git@github.com:Automattic/slush-theme-pattern-library.git
 ```
 
 Note that, performing Git operations over HTTPS may require you to [create a personal access token](https://help.github.com/articles/creating-an-access-token-for-command-line-use/).
+I would recommend cloning via SSH (with the above `git@github.com:...` link).
 
-Go into that directory and link it with NPM.
-
+Now, go into that directory, install your project NPM dependencies, and link it with NPM (this is _also_ a temporary step and will not be needed once the generator is moved to a public [NPM](https://www.npmjs.com/) package).
 
 ```bash
-$ cd slush-theme-pattern-library
-$ npm link
+$ cd slush-theme-pattern-library && npm install && npm link
 ```
+
+*If you are receiving a permissions error, you may need to run these installation commands as `sudo`. For example, `sudo npm install -g gulp`.
 
 Now, you're ready to use the generator.
 
