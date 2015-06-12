@@ -15,13 +15,12 @@ var gulp = require('gulp'),
     include = require('gulp-file-include'),
     rename = require('gulp-rename'),
     _ = require('underscore.string'),
-    inquirer = require('inquirer'),
-	del = require('del');
+    inquirer = require('inquirer');
 
-function format(string) {
+var format = function(string) {
     var username = string.toLowerCase();
     return username.replace(/\s/g, '');
-}
+};
 
 var defaults = (function () {
     var homeDir = process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE,
@@ -76,12 +75,6 @@ gulp.task('default', function (done) {
         default: defaults.userName
     }, {
         type: 'list',
-        name: 'genericons',
-        message: 'Do you want to include Genericons?',
-        choices: ['Yes', 'No'],
-        default: 'Yes'
-    }, {
-        type: 'list',
         name: 'siteBranding',
         message: 'Do you want to include site branding?',
         choices: ['Yes', 'No'],
@@ -128,7 +121,6 @@ gulp.task('default', function (done) {
                 }))
                 .pipe(conflict('./'))
                 .pipe(gulp.dest('./'))
-				.pipe(del(['components']))
                 .pipe(install())
                 .on('end', function () {
                     done();
