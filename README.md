@@ -27,7 +27,7 @@ I would recommend cloning via SSH (with the above `git@github.com:...` link).
 Now, go into that directory, install your project NPM dependencies, and link it with NPM (this is _also_ a temporary step and will not be needed once the generator is moved to a public [NPM](https://www.npmjs.com/) package).
 
 ```bash
-$ cd slush-theme-pattern-library && npm install && npm link
+$ cd slush-theme-pattern-library && npm install --save && npm link
 ```
 
 *If you are receiving a permissions error, you may need to run these installation commands as `sudo`. For example, `sudo npm install -g gulp`.
