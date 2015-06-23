@@ -9,12 +9,15 @@
 'use strict';
 
 var gulp = require('gulp'),
+    gutil = require('gulp-util'),
     install = require('gulp-install'),
     conflict = require('gulp-conflict'),
     template = require('gulp-template'),
     include = require('gulp-file-include'),
     rename = require('gulp-rename'),
     _ = require('underscore.string'),
+    del = require('del'),
+    vinylPaths = require('vinyl-paths'),
     inquirer = require('inquirer');
 
 var format = function(string) {
@@ -118,8 +121,18 @@ gulp.task('default', function (done) {
                 .pipe(conflict('./'))
                 .pipe(gulp.dest('./'))
                 .pipe(install())
-                .on('end', function () {
+                .on('finish', function () {
                     done();
                 });
-        });
+
+			process.on('exit', function() {
+				gutil.log('Install complete. Run "slush theme-patterns:clean" to remove unwanted files.');
+			});
+        }
+	);
+});
+
+gulp.task('clean', function() {
+	gulp.src('./components')
+		.pipe(vinylPaths(del));
 });
