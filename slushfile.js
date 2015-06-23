@@ -126,13 +126,15 @@ gulp.task('default', function (done) {
                 });
 
 			process.on('exit', function() {
-				gutil.log('Install complete. Run "slush theme-patterns:clean" to remove unwanted files.');
+				gutil.log('Install complete!');
+				gutil.log('Gulp is installed and ready to go.');
+				gutil.log('If you do not want to use Gulp in this project, run "slush theme-patterns:clean-gulp" now.');
 			});
         }
 	);
 });
 
-gulp.task('clean', function() {
-	gulp.src('./components')
+gulp.task('clean-gulp', function() {
+	gulp.src(['./node_modules', './package.json', './gulpfile.js', 'npm-debug.log'])
 		.pipe(vinylPaths(del));
 });

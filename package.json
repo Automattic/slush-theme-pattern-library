@@ -29,24 +29,23 @@
     "test": "echo \"No tests\""
   },
   "dependencies": {
+    "del": "^1.2.0",
     "gulp": "^3.6.2",
     "gulp-conflict": "^0.4.0",
+    "gulp-exec": "^2.1.1",
     "gulp-file-include": "^0.9.0",
     "gulp-install": "^0.4.0",
     "gulp-rename": "^1.2.0",
     "gulp-template": "^3.0.0",
+    "gulp-util": "^3.0.5",
     "iniparser": "^1.0.5",
     "inquirer": "^0.8.0",
     "slush": ">=1.0.0",
-    "underscore.string": "^3.1.1"
+    "underscore.string": "^3.1.1",
+    "vinyl-paths": "^1.0.0"
   },
   "keywords": [
     "slushgenerator"
   ],
-  "devDependencies": {
-    "del": "^1.2.0",
-    "gulp-exec": "^2.1.1",
-    "gulp-util": "^3.0.5",
-    "vinyl-paths": "^1.0.0"
-  }
+  "devDependencies": {}
 }
