@@ -81,7 +81,7 @@ gulp.task('default', function (done) {
     }, {
         type: 'checkbox',
         name: 'themeType',
-        message: 'What type of theme do you want to start with? (Please select only one type)',
+        message: 'What type of theme do you want to start with? (Please select ONLY ONE type)',
         choices: [{
 			name: 'Base',
 			value: 'typeBase',
@@ -111,13 +111,13 @@ gulp.task('default', function (done) {
     inquirer.prompt(prompts,
         function (answers) {
 
-			//if (answers.themeType > 1) {
-				//gutil.log('Please select only ONE theme type to start with.');
-				//return done();
-			//} else if (!answers.themeType) {
-				//gutil.log('Please select a theme type to start with.');
-				//return done();
-			//}
+			if (answers.themeType.length > 1) {
+				gutil.log('Please select only ONE theme type to start with.');
+				return done();
+			} else if (answers.themeType.length === 0) {
+				gutil.log('Please select a theme type to start with.');
+				return done();
+			}
 
             if (!answers.moveon) {
                 return done();
