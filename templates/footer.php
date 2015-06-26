@@ -14,7 +14,7 @@
 	<footer id="colophon" class="site-footer" role="contentinfo">
 
 		<!-- INSERT: site-info/site-info.php -->
-		@@include( './components/site-info/site-info.php', {
+		@@include( './src/site-info/site-info.php', {
 			"appNameSlug": "<%= appNameSlug %>",
 			"authorName": "<%= authorName %>",
 			"authorURI": "<%= authorURI %>"

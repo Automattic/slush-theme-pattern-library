@@ -55,7 +55,7 @@ gulp.task('images', function() {
 
 // Clean unneeded templates & files
 gulp.task('clean', function() {
-	gulp.src('./components')
+	gulp.src('./src')
 		.pipe(vinylPaths(del));
 });
 

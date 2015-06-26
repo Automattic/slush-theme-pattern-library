@@ -11,7 +11,7 @@ get_header(); ?>
 		<main id="main" class="site-main" role="main">
 
 		<!-- INSERT: error/error.php -->
-		@@include( './components/error/error.php', {
+		@@include( './src/error/error.php', {
 			"appNameSlug": "<%= appNameSlug %>"
 		} )
 
