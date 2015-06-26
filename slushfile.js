@@ -72,24 +72,36 @@ gulp.task('default', function (done) {
         name: 'authorURI',
         message: 'What is the theme author URI?',
         default: 'http://underscores.me'
+    //}, {
+        //type: 'list',
+        //name: 'siteBranding',
+        //message: 'Do you want to include site branding?',
+        //choices: ['Yes', 'No'],
+        //default: 'Yes'
     }, {
-        type: 'list',
-        name: 'siteBranding',
-        message: 'Do you want to include site branding?',
-        choices: ['Yes', 'No'],
-        default: 'Yes'
-    }, {
-        type: 'list',
-        name: 'primaryNav',
-        message: 'Do you want to include a primary navigation menu?',
-        choices: ['Yes', 'No'],
-        default: 'Yes'
-    }, {
-        type: 'list',
-        name: 'customHeader',
-        message: 'Do you want to include a Custom Header?',
-        choices: ['Yes', 'No'],
-        default: 'Yes'
+        type: 'checkbox',
+        name: 'themeType',
+        message: 'What type of theme do you want to start with? (Please select only one type)',
+        choices: [{
+			name: 'Base',
+			value: 'typeBase',
+			checked: true
+		}, {
+			name: 'Traditional Blog',
+			value: 'typeBlogTraditional',
+		}, {
+			name: 'Modern Blog',
+			value: 'typeBlogModern',
+		}, {
+			name: 'Business',
+			value: 'typeBusiness',
+		}, {
+			name: 'Magazine',
+			value: 'typeMag',
+		}, {
+			name: 'Portfolio',
+			value: 'typePortfolio',
+		}],
     }, {
         type: 'confirm',
         name: 'moveon',
@@ -98,9 +110,19 @@ gulp.task('default', function (done) {
     //Ask
     inquirer.prompt(prompts,
         function (answers) {
+
+			//if (answers.themeType > 1) {
+				//gutil.log('Please select only ONE theme type to start with.');
+				//return done();
+			//} else if (!answers.themeType) {
+				//gutil.log('Please select a theme type to start with.');
+				//return done();
+			//}
+
             if (!answers.moveon) {
                 return done();
             }
+
             answers.appNameSlug = _.slugify(answers.appName);
             gulp.src(__dirname + '/templates/**')
                 .pipe(template(answers))
@@ -108,9 +130,8 @@ gulp.task('default', function (done) {
                     prefix: '@@',
                     basepath: __dirname + '/templates',
                     context: {
-                        siteBranding: answers.siteBranding,
-                        primaryNav: answers.primaryNav,
-                        customHeader: answers.customHeader
+                        //siteBranding: answers.siteBranding,
+						themeType: answers.themeType
                     }
                 }))
                 .pipe(rename(function (file) {
