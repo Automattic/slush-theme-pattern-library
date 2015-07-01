@@ -1,0 +1,1 @@
+<?php @@appNameSlug_the_site_logo(); ?>
