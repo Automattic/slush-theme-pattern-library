@@ -3,6 +3,6 @@
 @@if ( '<%= themeType %>' !== 'typeBlogTraditional' ) {
 @import "structure";
 }
-@@if ( '<%= themeType %>' !== 'typeBlogTraditional' ) {
+@@if ( '<%= themeType %>' === 'typeBlogTraditional' ) {
 @import "../components/blog-traditional/variables/structure";
 }

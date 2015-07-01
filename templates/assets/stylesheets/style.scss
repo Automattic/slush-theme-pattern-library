@@ -103,7 +103,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 @@if ( '<%= themeType %>' !== 'typeBlogTraditional' ) {
 @import "layout/content";
 }
-@@if ( '<%= themeType %>' !== 'typeBlogTraditional' ) {
+@@if ( '<%= themeType %>' === 'typeBlogTraditional' ) {
 @import "components/blog-traditional/layout/content";
 }
 
