@@ -42,5 +42,7 @@ get_header(); ?>
 		</main><!-- #main -->
 	</section><!-- #primary -->
 
+@@if ( '<%= themeType %>' !== 'typeBlogModern' ) {
 <?php get_sidebar(); ?>
+}
 <?php get_footer(); ?>

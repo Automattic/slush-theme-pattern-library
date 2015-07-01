@@ -81,7 +81,7 @@ gulp.task('default', function (done) {
     }, {
         type: 'checkbox',
         name: 'themeType',
-        message: 'What type of theme do you want to start with? (Please select ONLY ONE type)',
+        message: 'What type of theme do you want to start with? (Please select ONLY ONE - use arrow keys and spacebar to select/deselect)',
         choices: [{
 			name: 'Base',
 			value: 'typeBase',

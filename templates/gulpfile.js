@@ -13,11 +13,6 @@ var sass = require( 'gulp-ruby-sass' ),
     del = require('del'),
     vinylPaths = require('vinyl-paths');
 
-// File Paths
-var paths = {
-	scripts: 'src/scripts/**/*.js',
-};
-
 // Tasks
 // Styles
 gulp.task( 'styles', function() {
@@ -54,9 +49,31 @@ gulp.task('images', function() {
 });
 
 // Clean unneeded templates & files
+var filePaths = ['./src'];
+
+@@if ( '<%= themeType %>' !== 'typeBlogTraditional' ) {
+	filePaths.push(
+			'./assets/stylesheets/components/blog-traditional'
+	);
+}
+@@if ( '<%= themeType %>' !== 'typeBusiness' ) {
+	filePaths.push(
+			'./archive-jetpack-testimonials.php',
+			'./components/content-hero',
+			'./components/content-testimonial',
+			'./components/testimonials'
+	);
+}
+@@if ( ( '<%= themeType %>' !== 'typeMag' ) || ( '<%= themeType %>' !== 'typePortfolio' ) ) {
+	filePaths.push(
+			'./template-front.php'
+	);
+}
+
+
 gulp.task('clean', function() {
-	gulp.src('./src')
-		.pipe(vinylPaths(del));
+	gulp.src( filePaths )
+		.pipe( vinylPaths( del ) );
 });
 
 // Watch files for changes
