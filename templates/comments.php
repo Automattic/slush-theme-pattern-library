@@ -24,22 +24,18 @@ if ( post_password_required() ) {
 
 	<?php if ( have_comments() ) : ?>
 
-		<!-- INSERT: comment-title/comment-title.php -->
 		@@include( './src/comment-title/comment-title.php', {
 			"appNameSlug": "<%= appNameSlug %>"
 		} )
 
-		<!-- INSERT: comment-navigation-above/comment-navigation-above.php -->
 		@@include( './src/comment-navigation-above/comment-navigation-above.php', {
 			"appNameSlug": "<%= appNameSlug %>"
 		} )
 
-		<!-- INSERT: comment-list/comment-list.php -->
 		@@include( './src/comment-list/comment-list.php', {
 			"appNameSlug": "<%= appNameSlug %>"
 		} )
 
-		<!-- INSERT: comment-navigation-below/comment-navigation-below.php -->
 		@@include( './src/comment-navigation-below/comment-navigation-below.php', {
 			"appNameSlug": "<%= appNameSlug %>"
 		} )

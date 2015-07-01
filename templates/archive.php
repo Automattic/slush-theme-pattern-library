@@ -14,7 +14,6 @@ get_header(); ?>
 
 		<?php if ( have_posts() ) : ?>
 
-			<!-- INSERT: archive-header/archive-header.php -->
 			@@include( './src/archive-header/archive-header.php', {
 				"appNameSlug": "<%= appNameSlug %>"
 			} )
@@ -45,5 +44,7 @@ get_header(); ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
+@@if ( '<%= themeType %>' !== 'typeBlogModern' ) {
 <?php get_sidebar(); ?>
+}
 <?php get_footer(); ?>

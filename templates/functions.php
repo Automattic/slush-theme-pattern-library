@@ -40,9 +40,16 @@ function <%= appNameSlug %>_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 
+	@@if ( '<%= themeType %>' === 'typeBusiness' ) {	
+	// Adds Business Theme image sizes.
+	add_image_size( '<%= appNameSlug %>-hero', 1280, 1000, true );
+	add_image_size( '<%= appNameSlug %>-thumbnail-avatar', 100, 100, true );
+	}
+
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'primary' => esc_html__( 'Primary Menu', '<%= appNameSlug %>' ),
+		'social'  => esc_html__( 'Social Links Menu', '<%= appNameSlug %>' ),
 	) );
 
 	/*

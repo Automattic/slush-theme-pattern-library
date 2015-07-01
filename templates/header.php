@@ -24,12 +24,14 @@
 
 	<header id="masthead" class="site-header" role="banner">
 		
-		<!-- INSERT: branding/branding.php -->
 		@@include( './src/branding/branding.php', {
 			"appNameSlug": "<%= appNameSlug %>"
 		} )
 
-		<!-- INSERT: top-navigation/top-navigation.php -->
+		@@include( './src/site-logo/site-logo.php', {
+			"appNameSlug": "<%= appNameSlug %>"
+		} )
+
 		@@include( './src/top-navigation/top-navigation.php', {
 			"appNameSlug": "<%= appNameSlug %>"
 		} )
