@@ -147,9 +147,7 @@ gulp.task('default', function (done) {
                 });
 
 			process.on('exit', function() {
-				gutil.log('Install complete!');
-				gutil.log('Gulp is installed and ready to go.');
-				gutil.log('If you do not want to use Gulp in this project, run "slush theme-patterns:clean-gulp" now.');
+				gutil.log('Installation complete!');
 			});
         }
 	);
