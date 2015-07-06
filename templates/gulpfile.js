@@ -16,7 +16,7 @@ var sass = require( 'gulp-ruby-sass' ),
 // Tasks
 // Styles
 gulp.task( 'styles', function() {
-	return sass( 'src/styles/style.scss', { style: 'expanded' } )
+	return sass( 'assets/stylesheets/style.scss', { style: 'expanded' } )
 		.pipe( autoprefixer( { browsers: ['last 2 versions', 'ie >= 9'], cascade: false } ) )
 		.on('error', function (err) {
 			console.error('Error!', err.message);
@@ -27,16 +27,16 @@ gulp.task( 'styles', function() {
 
 // Scripts
 gulp.task('scripts', function() {
-	return gulp.src( 'src/scripts/**/*.js' )
+	return gulp.src( 'assets/js/**/*.js' )
 		.pipe( jshint.reporter( 'default' ) )
-		.pipe( concat( 'script.js' ) )
-		.pipe( gulp.dest( 'js' ) )
+		.pipe( concat( 'main.js' ) )
+		.pipe( gulp.dest( 'assets/js' ) )
 		.pipe( notify( { message: 'Scripts task complete' } ) );
 });
 
 // Images
 gulp.task('images', function() {
-  return gulp.src( 'src/images/*' )
+  return gulp.src( 'assets/images/*' )
     .pipe( cache( imagemin( {
 		optimizationLevel: 3,
 		progressive: true,
@@ -80,16 +80,17 @@ gulp.task('clean', function() {
 gulp.task( 'watch', function() {
 
 	// Watch .scss files
-	gulp.watch( 'src/styles/**/*.scss', ['styles'] );
+	gulp.watch( 'assets/stylesheets/**/*.scss', ['styles'] );
 
 	// Watch .js files
-	gulp.watch( 'src/scripts/**/*.js', ['scripts'] );
+	gulp.watch( 'assets/js/**/*.js', ['scripts'] );
 
 	// Watch image files
-	gulp.watch( 'src/images/*', ['images'] );
+	//gulp.watch( 'assets/images/*', ['images'] );
 });
 
 // Default Task
 //gulp.task( 'default', ['styles', 'scripts', 'images', 'watch'] );
 //gulp.task( 'default', ['styles', 'scripts', 'images', 'clean'] );
-gulp.task( 'default', ['clean'] );
+gulp.task( 'default', ['styles', 'scripts', 'clean'] );
+//gulp.task( 'default', ['clean'] );
