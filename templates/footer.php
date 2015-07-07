@@ -14,6 +14,7 @@
 	<footer id="colophon" class="site-footer" role="contentinfo">
 
 		@@include( './src/site-info/site-info.php', {
+			"appName": "<%= appName %>",
 			"appNameVar": "<%= appNameVar %>",
 			"authorName": "<%= authorName %>",
 			"authorURI": "<%= authorURI %>"
