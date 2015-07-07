@@ -70,27 +70,12 @@ var filePaths = ['./src'];
 	);
 }
 
-
 gulp.task('clean', function() {
 	gulp.src( filePaths )
 		.pipe( vinylPaths( del ) );
 });
 
-// Watch files for changes
-gulp.task( 'watch', function() {
-
-	// Watch .scss files
-	gulp.watch( 'assets/stylesheets/**/*.scss', ['styles'] );
-
-	// Watch .js files
-	gulp.watch( 'assets/js/**/*.js', ['scripts'] );
-
-	// Watch image files
-	//gulp.watch( 'assets/images/*', ['images'] );
-});
-
 // Default Task
-//gulp.task( 'default', ['styles', 'scripts', 'images', 'watch'] );
 //gulp.task( 'default', ['styles', 'scripts', 'images', 'clean'] );
 gulp.task( 'default', ['styles', 'scripts', 'clean'] );
 //gulp.task( 'default', ['clean'] );

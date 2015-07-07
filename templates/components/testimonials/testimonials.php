@@ -1,6 +1,6 @@
-<?php $testimonials = edin_get_random_posts( 2, 'jetpack-testimonial' ); ?>
+<?php $testimonials = <%= appNameVar %>_get_random_posts( 2, 'jetpack-testimonial' ); ?>
 
-<?php if ( ! empty( $testimonials ) && 0 != get_theme_mod( 'edin_testimonials' ) ) : ?>
+<?php if ( ! empty( $testimonials ) && 0 != get_theme_mod( '<%= appNameVar %>_testimonials' ) ) : ?>
 	<div id="front-page-testimonials" class="front-page-testimonials-area">
 		<div class="front-page-testimonials-wrapper clear">
 			<?php

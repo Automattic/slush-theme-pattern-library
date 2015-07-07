@@ -12,37 +12,37 @@
  *
  * @since <%= appName %> 1.0
  */
-function <%= appNameSlug %>_jetpack_setup() {
+function <%= appNameVar %>_jetpack_setup() {
 	add_theme_support( 'infinite-scroll', array(
 		'container' => 'main',
-		'render'    => '<%= appNameSlug %>_infinite_scroll_render',
+		'render'    => '<%= appNameVar %>_infinite_scroll_render',
 		'footer'    => 'page',
 	) );
-} // end function <%= appNameSlug %>_jetpack_setup
-add_action( 'after_setup_theme', '<%= appNameSlug %>_jetpack_setup' );
+} // end function <%= appNameVar %>_jetpack_setup
+add_action( 'after_setup_theme', '<%= appNameVar %>_jetpack_setup' );
 
 /**
  * Custom render function for Infinite Scroll.
  *
  * @since <%= appName %> 1.0
  */
-function <%= appNameSlug %>_infinite_scroll_render() {
+function <%= appNameVar %>_infinite_scroll_render() {
 	while ( have_posts() ) {
 		the_post();
 		get_template_part( 'template-parts/content', get_post_format() );
 	}
-} // end function <%= appNameSlug %>_infinite_scroll_render
+} // end function <%= appNameVar %>_infinite_scroll_render
 
 /**
  * Add support for the Site Logo
  *
  * @since <%= appName %> 1.0
  */
-function component_s_site_logo_init() {
-	add_image_size( 'component-s-logo', 200, 200 );
-	add_theme_support( 'site-logo', array( 'size' => 'component-s-logo' ) );
+function <%= appNameVar %>_site_logo_init() {
+	add_image_size( '<%= appNameSlug %>-logo', 200, 200 );
+	add_theme_support( 'site-logo', array( 'size' => '<%= appNameSlug %>-logo' ) );
 }
-add_action( 'after_setup_theme', 'component_s__site_logo_init' );
+add_action( 'after_setup_theme', '<%= appNameVar %>_site_logo_init' );
 
 /**
  * Return early if Site Logo is not available.

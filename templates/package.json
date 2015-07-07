@@ -16,6 +16,6 @@
 		"vinyl-paths": "^1.0.0"
 	},
 	"scripts": {
-		"postinstall": "gulp clean; slush theme-patterns:clean-gulp"
+		"postinstall": "gulp; slush theme-patterns:clean-gulp"
 	}
 }

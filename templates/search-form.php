@@ -7,5 +7,5 @@
 ?>
 
 @@include( './src/search-form/search-form.php', {
-	"appNameSlug": "<%= appNameSlug %>"
+	"appNameVar": "<%= appNameVar %>"
 } )
