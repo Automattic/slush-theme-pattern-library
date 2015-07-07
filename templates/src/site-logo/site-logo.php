@@ -1,1 +1,1 @@
-<?php @@appNameVar_the_site_logo(); ?>
+<?php if ( function_exists( jetpack_the_site_logo ) ) jetpack_the_site_logo(); ?>
