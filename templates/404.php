@@ -11,7 +11,7 @@ get_header(); ?>
 		<main id="main" class="site-main" role="main">
 
 		@@include( './src/error/error.php', {
-			"appNameSlug": "<%= appNameSlug %>"
+			"appNameVar": "<%= appNameVar %>"
 		} )
 
 		</main><!-- #main -->

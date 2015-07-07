@@ -20,20 +20,20 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="hfeed site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', '<%= appNameSlug %>' ); ?></a>
+	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', '<%= appNameVar %>' ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">
 		
 		@@include( './src/branding/branding.php', {
-			"appNameSlug": "<%= appNameSlug %>"
+			"appNameVar": "<%= appNameVar %>"
 		} )
 
 		@@include( './src/site-logo/site-logo.php', {
-			"appNameSlug": "<%= appNameSlug %>"
+			"appNameVar": "<%= appNameVar %>"
 		} )
 
 		@@include( './src/top-navigation/top-navigation.php', {
-			"appNameSlug": "<%= appNameSlug %>"
+			"appNameVar": "<%= appNameVar %>"
 		} )
 
 	</header><!-- #masthead -->

@@ -124,6 +124,8 @@ gulp.task('default', function (done) {
             }
 
             answers.appNameSlug = _.slugify(answers.appName);
+			answers.appNameVar = answers.appNameSlug.replace(/-/g, '_');
+
             gulp.src(__dirname + '/templates/**')
                 .pipe(template(answers))
                 .pipe(include({
