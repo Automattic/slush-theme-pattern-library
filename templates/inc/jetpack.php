@@ -49,7 +49,7 @@ add_action( 'after_setup_theme', '<%= appNameVar %>_site_logo_init' );
  *
  * @since <%= appName %> 1.0
  */
-function component_s_the_site_logo() {
+function <%= appNameVar %>_the_site_logo() {
 	if ( ! function_exists( 'jetpack_the_site_logo' ) ) {
 		return;
 	} else {
