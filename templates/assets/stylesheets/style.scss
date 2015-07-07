@@ -44,9 +44,6 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 --------------------------------------------------------------*/
 @import "variables/variables";
 @import "shared/mixins";
-@@if ( '<%= themeType %>' === 'typeBlogTraditional' ) {
-@import "components/layout/grid";
-}
 
 /*--------------------------------------------------------------
 # Normalize
