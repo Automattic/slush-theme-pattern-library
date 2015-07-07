@@ -1,1 +1,1 @@
-<?php <%= appNameVar %>_the_site_logo(); ?>
+<?php @@appNameVar_the_site_logo(); ?>

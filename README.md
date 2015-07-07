@@ -1,6 +1,6 @@
 # slush-theme-patterns
 
-> A Slush generator for the Theme Pattern Library.
+> A Slush generator for the WordPress Theme Pattern Library.
 
 
 ## Getting Started
