@@ -18,3 +18,11 @@
 	clear: both;
 	width: $size__site-main;
 }
+
+.grid-test-container {
+	@include grid-container;
+
+	.grid-test-column {
+		@include grid-column(three, three);
+	}
+}
