@@ -2,7 +2,7 @@
 /**
  * Template Name: Front Page
  *
- * @package component_s
+ * @package <%= appName %>
  */
 get_header(); ?>
 

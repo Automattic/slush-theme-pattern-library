@@ -15,7 +15,7 @@ get_header(); ?>
 		<?php if ( have_posts() ) : ?>
 
 			@@include( './src/archive-header/archive-header.php', {
-				"appNameSlug": "<%= appNameSlug %>"
+				"appNameVar": "<%= appNameSlug %>"
 			} )
 
 			<?php /* Start the Loop */ ?>

@@ -14,7 +14,7 @@ get_header(); ?>
 
 			<!-- INSERT: search-header/search-header.php -->
 			@@include( './src/search-header/search-header.php', {
-				"appNameSlug": "<%= appNameSlug %>"
+				"appNameVar": "<%= appNameVar %>"
 			} )
 
 			<?php /* Start the Loop */ ?>
