@@ -15,7 +15,23 @@ Once you have Node installed, you can install the global dependencies (Gulp and 
 $ npm install -g gulp slush
 ```
 
-Then you'll want to clone this repository (this is a temporary step and will not be needed once the generator is moved to a public [NPM](https://www.npmjs.com/) package).
+Additionally, this generator takes advantage of Sass for a couple one-off compiling tasks.
+
+If you're on a Mac, you can install that Sass locally with the following:
+
+```bash
+$ gem install sass
+```
+
+OR the following, if you get a permissions error:
+
+```bash
+$ sudo gem install sass
+```
+
+A more in-depth set of instructions can be found at the official [Sass docs](http://sass-lang.com/install).
+
+Once you have all of the dependencies installed, you'll want to clone this repository (this is a temporary step and will not be needed once the generator is moved to a public [NPM](https://www.npmjs.com/) package).
 
 ```bash
 $ git clone git@github.com:Automattic/slush-theme-pattern-library.git
