@@ -4,16 +4,21 @@ var gulp = require( 'gulp' );
 // Include Plugins
 var sass = require( 'gulp-ruby-sass' ),
 	autoprefixer = require( 'gulp-autoprefixer' ),
-	imagemin = require( 'gulp-imagemin' ),
-	pngquant = require('imagemin-pngquant'),
 	jshint = require( 'gulp-jshint' ),
 	concat = require( 'gulp-concat' ),
 	notify = require( 'gulp-notify' ),
-	cache = require( 'gulp-cache' ),
+	//rename = require( 'gulp-rename' ),
     del = require('del'),
     vinylPaths = require('vinyl-paths');
 
 // Tasks
+// File Organization (moves source files to their proper location - may take several runs)
+//var typeFiles = [];
+
+//gulp.task( 'rename', function() {
+	//return gulp.src()
+//});
+
 // Styles
 gulp.task( 'styles', function() {
 	return sass( 'assets/stylesheets/style.scss', { style: 'expanded' } )
@@ -34,30 +39,16 @@ gulp.task('scripts', function() {
 		.pipe( notify( { message: 'Scripts task complete' } ) );
 });
 
-// Images
-gulp.task('images', function() {
-  return gulp.src( 'assets/images/*' )
-    .pipe( cache( imagemin( {
-		optimizationLevel: 3,
-		progressive: true,
-		interlaced: true,
-		svgoPlugins: [{ removeViewBox: false }],
-		use: [pngquant()]
-	} ) ) )
-    .pipe( gulp.dest( 'images' ) )
-    .pipe( notify( { message: 'Images task complete' } ) );
-});
-
-// Clean unneeded templates & files
-var filePaths = ['./src'];
+// Cleanup (remove unneeded templates & files)
+var buildPaths = ['./src'];
 
 @@if ( '<%= themeType %>' !== 'typeBlogTraditional' ) {
-	filePaths.push(
+	buildPaths.push(
 			'./assets/stylesheets/components/blog-traditional'
 	);
 }
 @@if ( '<%= themeType %>' !== 'typeBusiness' ) {
-	filePaths.push(
+	buildPaths.push(
 			'./archive-jetpack-testimonials.php',
 			'./components/content-hero',
 			'./components/content-testimonial',
@@ -65,17 +56,16 @@ var filePaths = ['./src'];
 	);
 }
 @@if ( ( '<%= themeType %>' !== 'typeMag' ) || ( '<%= themeType %>' !== 'typePortfolio' ) ) {
-	filePaths.push(
+	buildPaths.push(
 			'./template-front.php'
 	);
 }
 
 gulp.task('clean', function() {
-	gulp.src( filePaths )
+	return gulp.src( buildPaths )
 		.pipe( vinylPaths( del ) );
 });
 
 // Default Task
 //gulp.task( 'default', ['styles', 'scripts', 'images', 'clean'] );
 gulp.task( 'default', ['styles', 'scripts', 'clean'] );
-//gulp.task( 'default', ['clean'] );
