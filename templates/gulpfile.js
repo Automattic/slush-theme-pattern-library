@@ -7,17 +7,26 @@ var sass = require( 'gulp-ruby-sass' ),
 	jshint = require( 'gulp-jshint' ),
 	concat = require( 'gulp-concat' ),
 	notify = require( 'gulp-notify' ),
-	//rename = require( 'gulp-rename' ),
+	rename = require( 'gulp-rename' ),
     del = require('del'),
     vinylPaths = require('vinyl-paths');
 
 // Tasks
 // File Organization (moves source files to their proper location - may take several runs)
-//var typeFiles = [];
+var typeFiles = [];
 
-//gulp.task( 'rename', function() {
-	//return gulp.src()
-//});
+@@if ( '<%= themeType %>' === 'typeBlogModern' ) {
+	typeFiles.push( 'src/types/blog-modern/functions.php', 'src/types/blog-modern/header.php' );
+}
+
+@@if ( '<%= themeType %>' !== 'typeBase' ) {
+gulp.task( 'rename', function() {
+	return gulp.src( typeFiles )
+		.pipe( rename() )
+		.pipe( gulp.dest( './' ) )
+		.pipe( notify( { message: 'Base restructure task complete' } ) );
+});
+}
 
 // Styles
 gulp.task( 'styles', function() {
