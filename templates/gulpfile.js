@@ -25,20 +25,20 @@ var typeFiles = [],
 @@if ( '<%= themeType %>' === 'typeBlogModern' || '<%= themeType %>' === 'typeBlogTraditional' || '<%= themeType %>' === 'typeBusiness' || '<%= themeType %>' === 'typePortfolio' ) {
 	typeFiles.push( 'src/types/'+ themeTypes.<%= themeType %> +'/header.php' );
 }
-@@if ( '<%= themeType %>' === 'typeBlogModern' || '<%= themeType %>' === 'typeBusiness' || '<%= themeType %>' === 'typePortfolio' ) {
-	typeFiles.push( 'src/types/'+ themeTypes.<%= themeType %> +'/functions.php' );
-}
 @@if ( '<%= themeType %>' === 'typePortfolio' ) {
 	typeFiles.push(
 		'src/types/portfolio/single-jetpack-portfolio.php',
-		'src/types/portfolio/template-front.php',
+		'src/types/portfolio/template-front.php'
 	);
 }
 @@if ( '<%= themeType %>' === 'typeBlogTraditional' ) {
 	typeFiles.push( 'src/types/blog-traditional/sidebar.php' );
 }
 @@if ( '<%= themeType %>' === 'typeBusiness' ) {
-	typeFiles.push( 'src/types/business/archive-jetpack-testimonials.php' );
+	typeFiles.push(
+		'src/types/business/archive-jetpack-testimonials.php',
+		'src/types/business/template-front.php'
+	);
 }
 
 gulp.task( 'rename', function() {

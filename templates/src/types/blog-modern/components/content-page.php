@@ -2,7 +2,7 @@
 /**
  * The template used for displaying page content in page.php
  *
- * @package theme-modern
+ * @package <%= appName %>
  */
 
 ?>
@@ -10,7 +10,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<?php
 		if ( has_post_thumbnail() && ! post_password_required() ) :
-			$featuredimage = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'thememodern-large' );
+			$featuredimage = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), '<%= appNameSlug %>-large' );
 	?>
 
 	<div class="entry-wrapper">
@@ -22,14 +22,14 @@
 			<?php the_content(); ?>
 			<?php
 				wp_link_pages( array(
-					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'theme_traditional' ),
+					'before' => '<div class="page-links">' . esc_html__( 'Pages:', '<%= appNameVar %>' ),
 					'after'  => '</div>',
 				) );
 			?>
 		</div><!-- .entry-content -->
 
 		<footer class="entry-footer">
-			<?php edit_post_link( esc_html__( 'Edit', 'theme_traditional' ), '<span class="edit-link">', '</span>' ); ?>
+			<?php edit_post_link( esc_html__( 'Edit', '<%= appNameVar %>' ), '<span class="edit-link">', '</span>' ); ?>
 		</footer><!-- .entry-footer -->
 	</div>
 </article><!-- #post-## -->
