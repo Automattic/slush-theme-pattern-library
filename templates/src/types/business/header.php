@@ -4,7 +4,7 @@
  *
  * Displays all of the <head> section and everything up till <div id="content">
  *
- * @package component_s
+ * @package <%= appName %>
  */
 
 ?><!DOCTYPE html>
@@ -20,15 +20,21 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="hfeed site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'component_s' ); ?></a>
+	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', '<%= appNameVar %>' ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">
 		
-		<!-- SLUSH : compoonents/branding/branding.php -->
+		<div class="site-branding">
+			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+			<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
+		</div><!-- .site-branding -->
 
-		<!-- SLUSH : compoonents/site-logo/site-logo.php -->
+		<?php <%= appNameVar %>_the_site_logo(); ?>
 
-		<!-- SLUSH : compoonents/top-navigation/top-navigation.php -->
+		<nav id="site-navigation" class="main-navigation" role="navigation">
+			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', '<%= appNameVar %>' ); ?></button>
+			<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
+		</nav><!-- #site-navigation -->
 
 	</header><!-- #masthead -->
 

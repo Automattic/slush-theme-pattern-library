@@ -3,7 +3,6 @@
  * <%= appName %> functions and definitions
  *
  * @package <%= appName %>
- * PROPERLY REPLACED!
  */
 
 if ( ! function_exists( '<%= appNameVar %>_setup' ) ) :

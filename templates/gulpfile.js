@@ -13,20 +13,40 @@ var sass = require( 'gulp-ruby-sass' ),
 
 // Tasks
 // File Organization (moves source files to their proper location - may take several runs)
-var typeFiles = [];
+var typeFiles = [],
+	themeTypes = {
+		'typeBlogTraditional': 'blog-traditional',
+		'typeBlogModern': 'blog-modern',
+		'typePortfolio': 'portfolio',
+		'typeBusiness': 'business',
+		'typeMag': 'magazine'
+	};
 
-@@if ( '<%= themeType %>' === 'typeBlogModern' ) {
-	typeFiles.push( 'src/types/blog-modern/functions.php', 'src/types/blog-modern/header.php' );
+@@if ( '<%= themeType %>' === 'typeBlogModern' || '<%= themeType %>' === 'typeBlogTraditional' || '<%= themeType %>' === 'typeBusiness' || '<%= themeType %>' === 'typePortfolio' ) {
+	typeFiles.push( 'src/types/'+ themeTypes.<%= themeType %> +'/header.php' );
+}
+@@if ( '<%= themeType %>' === 'typeBlogModern' || '<%= themeType %>' === 'typeBusiness' || '<%= themeType %>' === 'typePortfolio' ) {
+	typeFiles.push( 'src/types/'+ themeTypes.<%= themeType %> +'/functions.php' );
+}
+@@if ( '<%= themeType %>' === 'typePortfolio' ) {
+	typeFiles.push(
+		'src/types/portfolio/single-jetpack-portfolio.php',
+		'src/types/portfolio/template-front.php',
+	);
+}
+@@if ( '<%= themeType %>' === 'typeBlogTraditional' ) {
+	typeFiles.push( 'src/types/blog-traditional/sidebar.php' );
+}
+@@if ( '<%= themeType %>' === 'typeBusiness' ) {
+	typeFiles.push( 'src/types/business/archive-jetpack-testimonials.php' );
 }
 
-@@if ( '<%= themeType %>' !== 'typeBase' ) {
 gulp.task( 'rename', function() {
-	return gulp.src( typeFiles )
-		.pipe( rename() )
+	return gulp.src( typeFiles, { base: process.cwd() } )
+		.pipe( rename( { dirname: '' } ) )
 		.pipe( gulp.dest( './' ) )
 		.pipe( notify( { message: 'Base restructure task complete' } ) );
 });
-}
 
 // Styles
 gulp.task( 'styles', function() {
@@ -76,5 +96,5 @@ gulp.task('clean', function() {
 });
 
 // Default Task
-//gulp.task( 'default', ['styles', 'scripts', 'images', 'clean'] );
-gulp.task( 'default', ['styles', 'scripts', 'clean'] );
+gulp.task( 'default', ['styles', 'scripts', 'rename', 'clean'] );
+//gulp.task( 'default', ['styles', 'scripts', 'clean'] );
