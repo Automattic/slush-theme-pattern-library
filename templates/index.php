@@ -13,14 +13,12 @@
 
 get_header(); ?>
 
-	@@if ( '<%= themeType %>' === 'typeMag' ) {
+@@if ( '<%= themeType %>' === 'typeMag' ) {
 	<?php
-		if ( is_home() ) {
-			// Include the featured content template.
-			get_template_part( 'components/featured' );
-		}
+		// Include the featured content template.
+		get_template_part( 'components/featured' );
 	?>
-	}
+}
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
