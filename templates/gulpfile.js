@@ -49,7 +49,7 @@ var rootFiles = [],
 		'src/types/blog-traditional/sidebar.php',
 		'src/types/blog-traditional/header.php'
 	);
-	styleLayouts.push( 'src/types/blog-traditional/assets/stylesheets/layout/*.*' );
+	styleShared.push( 'src/types/blog-traditional/assets/stylesheets/shared/*.*' );
 	styleVariables.push( 'src/types/blog-traditional/assets/stylesheets/variables/*.*' );
 }
 
@@ -66,6 +66,8 @@ var rootFiles = [],
 @@if ( '<%= themeType %>' === 'typeMag' ) {
 	incFiles.push( 'src/types/magazine/inc/**/*.*' );
 	rootComponents.push( 'src/types/magazine/components/**/*.*' );
+	styleShared.push( 'src/types/magazine/assets/stylesheets/shared/*.*' );
+	styleVariables.push( 'src/types/magazine/assets/stylesheets/variables/*.*' );
 }
 
 
