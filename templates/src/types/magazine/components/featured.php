@@ -2,10 +2,10 @@
 /**
  * The template for displaying featured content
  *
- * @package theme-magazine
+ * @package <%= appName %>
  */
 $featured_posts = theme_magazine_get_featured_posts();
-if ( empty( $featured_posts ) ) {
+if ( ! is_home() || empty( $featured_posts ) ) {
 	return;
 }
 ?>
