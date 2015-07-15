@@ -22,6 +22,7 @@ var switchCase = '<%= themeType %>',
 	styleVariables = [],
 	scripts = [];
 
+
 switch ( switchCase ) {
 	case 'typePortfolio':
 		rootFiles.push(
@@ -148,4 +149,3 @@ gulp.task('clean', ['move:root', 'move:inc', 'move:root-styles', 'move:component
 
 // Default Task
 gulp.task( 'default', ['move:root', 'move:inc', 'move:root-styles', 'move:component-styles', 'move:layout-styles', 'move:shared-styles', 'move:variable-styles', 'move:scripts', 'move:components', 'styles', 'clean'] );
-//gulp.task( 'default', ['styles', 'scripts', 'clean'] );
