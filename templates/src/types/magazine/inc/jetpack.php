@@ -3,53 +3,53 @@
  * Jetpack Compatibility File
  * See: https://jetpack.me/
  *
- * @package theme-magazine
+ * @package <%= appName %>
  */
 
 /**
  * Add theme support for Infinite Scroll.
  * See: https://jetpack.me/support/infinite-scroll/
  *
- * @since theme-magazine 1.0
+ * @since <%= appName %> 1.0
  */
-function theme_traditional_jetpack_setup() {
+function <%= appNameVar %>_jetpack_setup() {
 	add_theme_support( 'infinite-scroll', array(
 		'container' => 'main',
-		'render'    => 'theme_traditional_infinite_scroll_render',
+		'render'    => '<%= appNameVar %>_infinite_scroll_render',
 		'footer'    => 'page',
 	) );
-} // end function theme_traditional_jetpack_setup
-add_action( 'after_setup_theme', 'theme_traditional_jetpack_setup' );
+} // end function <%= appNameVar %>_jetpack_setup
+add_action( 'after_setup_theme', '<%= appNameVar %>_jetpack_setup' );
 
 /**
  * Custom render function for Infinite Scroll.
  *
- * @since theme-magazine 1.0
+ * @since <%= appName %> 1.0
  */
-function theme_traditional_infinite_scroll_render() {
+function <%= appNameVar %>_infinite_scroll_render() {
 	while ( have_posts() ) {
 		the_post();
 		get_template_part( 'template-parts/content', get_post_format() );
 	}
-} // end function theme_traditional_infinite_scroll_render
+} // end function <%= appNameVar %>_infinite_scroll_render
 
 /**
  * Add support for the Site Logo
  *
- * @since theme-magazine 1.0
+ * @since <%= appName %> 1.0
  */
-function theme_traditional_site_logo_init() {
-	add_image_size( 'theme-magazine-logo', 200, 200 );
-	add_theme_support( 'site-logo', array( 'size' => 'theme-magazine-logo' ) );
+function <%= appNameVar %>_site_logo_init() {
+	add_image_size( '<%= appName %>-logo', 200, 200 );
+	add_theme_support( 'site-logo', array( 'size' => '<%= appName %>-logo' ) );
 }
-add_action( 'after_setup_theme', 'theme_traditional_site_logo_init' );
+add_action( 'after_setup_theme', '<%= appNameVar %>_site_logo_init' );
 
 /**
  * Return early if Site Logo is not available.
  *
- * @since theme-magazine 1.0
+ * @since <%= appName %> 1.0
  */
-function theme_traditional_the_site_logo() {
+function <%= appNameVar %>_the_site_logo() {
 	if ( ! function_exists( 'jetpack_the_site_logo' ) ) {
 		return;
 	} else {
@@ -60,7 +60,7 @@ function theme_traditional_the_site_logo() {
 /**
 * Add theme support for Responsive Videos.
  *
- * @since theme-magazine 1.0
+ * @since <%= appName %> 1.0
 */
 add_theme_support( 'jetpack-responsive-videos' );
 
