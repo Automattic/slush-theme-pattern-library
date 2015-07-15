@@ -1,8 +1,3 @@
 @import "colors";
 @import "typography";
-@@if ( '<%= themeType %>' !== 'typeBlogTraditional' ) {
 @import "structure";
-}
-@@if ( '<%= themeType %>' === 'typeBlogTraditional' ) {
-@import "../components/blog-traditional/variables/structure";
-}

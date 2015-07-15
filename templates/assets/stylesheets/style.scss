@@ -96,16 +96,6 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 @import "layout/structure";
 
 /*--------------------------------------------------------------
-# Content
---------------------------------------------------------------*/
-@@if ( '<%= themeType %>' !== 'typeBlogTraditional' ) {
-@import "layout/structure";
-}
-@@if ( '<%= themeType %>' === 'typeBlogTraditional' ) {
-@import "components/blog-traditional/layout/structure";
-}
-
-/*--------------------------------------------------------------
 # Infinite scroll
 --------------------------------------------------------------*/
 @import "shared/infinite-scroll";
