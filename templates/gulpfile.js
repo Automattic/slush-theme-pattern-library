@@ -6,12 +6,14 @@ var sass = require( 'gulp-ruby-sass' ),
 	autoprefixer = require( 'gulp-autoprefixer' ),
 	notify = require( 'gulp-notify' ),
 	rename = require( 'gulp-rename' ),
+    gutil = require('gulp-util'),
     del = require('del'),
     vinylPaths = require('vinyl-paths');
 
 // Tasks
 // File Organization (moves source files to their proper location - may take several runs)
-var rootFiles = [],
+var switchCase = '<%= themeType %>',
+	rootFiles = [],
 	incFiles = [],
 	rootComponents = [],
 	stylesheets = [],
@@ -21,53 +23,53 @@ var rootFiles = [],
 	styleVariables = [],
 	scripts = [];
 
-@@if ( '<%= themeType %>' === 'typePortfolio' ) {
-	rootFiles.push(
-		'src/types/portfolio/single-jetpack-portfolio.php',
-		'src/types/portfolio/header.php',
-		'src/types/portfolio/template-front.php'
-	);
-	incFiles.push( 'src/types/portfolio/inc/**/*.*' );
-	rootComponents.push( 'src/types/portfolio/components/**/*.*' );
-	styleComponents.push( 'src/types/portfolio/assets/stylesheets/components/*.*' );
-	styleShared.push( 'src/types/portfolio/assets/stylesheets/shared/*.*' );
-}
-
-@@if ( '<%= themeType %>' === 'typeBlogModern' ) {
-	rootFiles.push( 'src/types/blog-modern/header.php' );
-	incFiles.push( 'src/types/blog-modern/inc/**/*.*' );
-	rootComponents.push( 'src/types/blog-modern/components/**/*.*' );
-	stylesheets.push( 'src/types/blog-modern/assets/stylesheets/style.scss' );
-	styleComponents.push( 'src/types/blog-modern/assets/stylesheets/components/*.*' );
-	styleLayouts.push( 'src/types/blog-modern/assets/stylesheets/layout/*.*' );
-	styleShared.push( 'src/types/blog-modern/assets/stylesheets/shared/*.*' );
-	scripts.push( 'src/types/blog-modern/assets/js/**/*.*' );
-}
-
-@@if ( '<%= themeType %>' === 'typeBlogTraditional' ) {
-	rootFiles.push(
-		'src/types/blog-traditional/sidebar.php',
-		'src/types/blog-traditional/header.php'
-	);
-	styleShared.push( 'src/types/blog-traditional/assets/stylesheets/shared/*.*' );
-	styleVariables.push( 'src/types/blog-traditional/assets/stylesheets/variables/*.*' );
-}
-
-@@if ( '<%= themeType %>' === 'typeBusiness' ) {
-	rootFiles.push(
-		'src/types/business/archive-jetpack-testimonials.php',
-		'src/types/business/template-front.php',
-		'src/types/business/header.php'
-	);
-	incFiles.push( 'src/types/business/inc/**/*.*' );
-	rootComponents.push( 'src/types/business/components/**/*.*' );
-}
-
-@@if ( '<%= themeType %>' === 'typeMag' ) {
-	incFiles.push( 'src/types/magazine/inc/**/*.*' );
-	rootComponents.push( 'src/types/magazine/components/**/*.*' );
-	styleShared.push( 'src/types/magazine/assets/stylesheets/shared/*.*' );
-	styleVariables.push( 'src/types/magazine/assets/stylesheets/variables/*.*' );
+switch ( switchCase ) {
+	case 'typePortfolio':
+		rootFiles.push(
+			'src/types/portfolio/single-jetpack-portfolio.php',
+			'src/types/portfolio/header.php',
+			'src/types/portfolio/template-front.php'
+		);
+		incFiles.push( 'src/types/portfolio/inc/**/*.*' );
+		rootComponents.push( 'src/types/portfolio/components/**/*.*' );
+		styleComponents.push( 'src/types/portfolio/assets/stylesheets/components/*.*' );
+		styleShared.push( 'src/types/portfolio/assets/stylesheets/shared/*.*' );
+		break;
+	case 'typeBlogModern':
+		rootFiles.push( 'src/types/blog-modern/header.php' );
+		incFiles.push( 'src/types/blog-modern/inc/**/*.*' );
+		rootComponents.push( 'src/types/blog-modern/components/**/*.*' );
+		stylesheets.push( 'src/types/blog-modern/assets/stylesheets/style.scss' );
+		styleComponents.push( 'src/types/blog-modern/assets/stylesheets/components/*.*' );
+		styleLayouts.push( 'src/types/blog-modern/assets/stylesheets/layout/*.*' );
+		styleShared.push( 'src/types/blog-modern/assets/stylesheets/shared/*.*' );
+		scripts.push( 'src/types/blog-modern/assets/js/**/*.*' );
+		break;
+	case 'typeBlogTraditional':
+		rootFiles.push(
+			'src/types/blog-traditional/sidebar.php',
+			'src/types/blog-traditional/header.php'
+		);
+		styleShared.push( 'src/types/blog-traditional/assets/stylesheets/shared/*.*' );
+		styleVariables.push( 'src/types/blog-traditional/assets/stylesheets/variables/*.*' );
+		break;
+	case 'typeBusiness':
+		rootFiles.push(
+			'src/types/business/archive-jetpack-testimonials.php',
+			'src/types/business/template-front.php',
+			'src/types/business/header.php'
+		);
+		incFiles.push( 'src/types/business/inc/**/*.*' );
+		rootComponents.push( 'src/types/business/components/**/*.*' );
+		break;
+	case 'typeMag':
+		incFiles.push( 'src/types/magazine/inc/**/*.*' );
+		rootComponents.push( 'src/types/magazine/components/**/*.*' );
+		styleShared.push( 'src/types/magazine/assets/stylesheets/shared/*.*' );
+		styleVariables.push( 'src/types/magazine/assets/stylesheets/variables/*.*' );
+		break;
+	default:
+		gutil.log('Base theme selected. Skipping through move tasks...');
 }
 
 
@@ -139,14 +141,13 @@ gulp.task( 'styles', ['move:root', 'move:inc', 'move:root-styles', 'move:compone
 
 
 // Cleanup (remove src dir after build)
-var buildPaths = ['./src'];
-
 gulp.task('clean', ['move:root', 'move:inc', 'move:root-styles', 'move:component-styles', 'move:layout-styles', 'move:shared-styles', 'move:variable-styles', 'move:scripts', 'move:components', 'styles'], function() {
-	return gulp.src( buildPaths )
+	return gulp.src( './src' )
 		.pipe( notify( { message: 'Type files moved into place. Beginning cleanup task ...' } ) )
 		.pipe( vinylPaths( del ) )
 		.pipe( notify( { message: 'Cleanup task complete' } ) );
 });
+
 
 // Default Task
 gulp.task( 'default', ['move:root', 'move:inc', 'move:root-styles', 'move:component-styles', 'move:layout-styles', 'move:shared-styles', 'move:variable-styles', 'move:scripts', 'move:components', 'styles', 'clean'] );
