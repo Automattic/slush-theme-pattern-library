@@ -4,7 +4,6 @@ var gulp = require( 'gulp' );
 // Include Plugins
 var sass = require( 'gulp-ruby-sass' ),
 	autoprefixer = require( 'gulp-autoprefixer' ),
-	notify = require( 'gulp-notify' ),
 	rename = require( 'gulp-rename' ),
     gutil = require('gulp-util'),
     del = require('del'),
@@ -69,9 +68,8 @@ switch ( switchCase ) {
 		styleVariables.push( 'src/types/magazine/assets/stylesheets/variables/*.*' );
 		break;
 	default:
-		gutil.log('Base theme selected. Skipping through move tasks...');
+		gutil.log('Base theme selected. Skipping over restructure tasks...');
 }
-
 
 gulp.task( 'move:root', function() {
 	return gulp.src( rootFiles, { base: process.cwd() } )
@@ -130,22 +128,21 @@ gulp.task( 'move:components', function() {
 
 // Styles - Compile Sass
 gulp.task( 'styles', ['move:root', 'move:inc', 'move:root-styles', 'move:component-styles', 'move:layout-styles', 'move:shared-styles', 'move:variable-styles', 'move:scripts', 'move:components'], function() {
+	gutil.log("File restructuring complete. Beginning Sass compile ...")
 	return sass( 'assets/stylesheets/style.scss', { style: 'expanded' } )
 		.pipe( autoprefixer( { browsers: ['last 2 versions', 'ie >= 9'], cascade: false } ) )
 		.on('error', function (err) {
 			console.error('Error!', err.message);
 		})
-		.pipe( gulp.dest( './' ) )
-		.pipe( notify( { message: 'Styles task complete' } ) );
+		.pipe( gulp.dest( './' ) );
 });
 
 
 // Cleanup (remove src dir after build)
 gulp.task('clean', ['move:root', 'move:inc', 'move:root-styles', 'move:component-styles', 'move:layout-styles', 'move:shared-styles', 'move:variable-styles', 'move:scripts', 'move:components', 'styles'], function() {
+	gutil.log("Sass compile complete. Beginning cleanup process ...")
 	return gulp.src( './src' )
-		.pipe( notify( { message: 'Type files moved into place. Beginning cleanup task ...' } ) )
-		.pipe( vinylPaths( del ) )
-		.pipe( notify( { message: 'Cleanup task complete' } ) );
+		.pipe( vinylPaths( del ) );
 });
 
 
