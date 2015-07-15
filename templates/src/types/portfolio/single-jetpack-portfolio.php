@@ -2,7 +2,7 @@
 /**
  * The Template for displaying all single projects.
  *
- * @package theme-portfolio
+ * @package <%= appName %>
  */
 
 get_header(); ?>
@@ -21,7 +21,7 @@ get_header(); ?>
 				endif;
 			?>
 
-			<?php theme_portfolio_post_nav(); ?>
+			<?php <%= appNameVar %>_post_nav(); ?>
 
 		<?php endwhile; // end of the loop. ?>
 

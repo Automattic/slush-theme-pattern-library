@@ -1,4 +1,4 @@
-=== component_s ===
+=== <%= appNameVar %> ===
 
 Contributors: automattic
 Tags: translation-ready, custom-background, theme-options, custom-menu, post-formats, threaded-comments

@@ -67,13 +67,13 @@ add_theme_support( 'jetpack-responsive-videos' );
 /**
  * Featured Posts
  */
-function theme_magazine_has_multiple_featured_posts() {
-	$featured_posts = apply_filters( 'theme_magazine_get_featured_posts', array() );
+function <%= appNameVar %>_has_multiple_featured_posts() {
+	$featured_posts = apply_filters( '<%= appNameVar %>_get_featured_posts', array() );
 	if ( is_array( $featured_posts ) && 1 < count( $featured_posts ) ) {
 		return true;
 	}
 	return false;
 }
-function theme_magazine_get_featured_posts() {
-	return apply_filters( 'theme_magazine_get_featured_posts', false );
+function <%= appNameVar %>_get_featured_posts() {
+	return apply_filters( '<%= appNameVar %>_get_featured_posts', false );
 }

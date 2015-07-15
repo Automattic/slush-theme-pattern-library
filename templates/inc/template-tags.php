@@ -119,7 +119,7 @@ function <%= appNameVar %>_entry_footer() {
 
 	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
 		echo '<span class="comments-link">';
-		comments_popup_link( esc_html__( 'Leave a comment', '<%= appNameVar %>' ), esc_html__( '1 Comment', 'component_s' ), esc_html__( '% Comments', 'component_s' ) );
+		comments_popup_link( esc_html__( 'Leave a comment', '<%= appNameVar %>' ), esc_html__( '1 Comment', '<%= appNameVar %>' ), esc_html__( '% Comments', '<%= appNameVar %>' ) );
 		echo '</span>';
 	}
 
@@ -146,11 +146,11 @@ function the_archive_title( $before = '', $after = '' ) {
 	} elseif ( is_author() ) {
 		$title = sprintf( esc_html__( 'Author: %s', '<%= appNameVar %>' ), '<span class="vcard">' . get_the_author() . '</span>' );
 	} elseif ( is_year() ) {
-		$title = sprintf( esc_html__( 'Year: %s', '<%= appNameVar %>' ), get_the_date( esc_html_x( 'Y', 'yearly archives date format', 'component_s' ) ) );
+		$title = sprintf( esc_html__( 'Year: %s', '<%= appNameVar %>' ), get_the_date( esc_html_x( 'Y', 'yearly archives date format', '<%= appNameVar %>' ) ) );
 	} elseif ( is_month() ) {
-		$title = sprintf( esc_html__( 'Month: %s', '<%= appNameVar %>' ), get_the_date( esc_html_x( 'F Y', 'monthly archives date format', 'component_s' ) ) );
+		$title = sprintf( esc_html__( 'Month: %s', '<%= appNameVar %>' ), get_the_date( esc_html_x( 'F Y', 'monthly archives date format', '<%= appNameVar %>' ) ) );
 	} elseif ( is_day() ) {
-		$title = sprintf( esc_html__( 'Day: %s', '<%= appNameVar %>' ), get_the_date( esc_html_x( 'F j, Y', 'daily archives date format', 'component_s' ) ) );
+		$title = sprintf( esc_html__( 'Day: %s', '<%= appNameVar %>' ), get_the_date( esc_html_x( 'F j, Y', 'daily archives date format', '<%= appNameVar %>' ) ) );
 	} elseif ( is_tax( 'post_format' ) ) {
 		if ( is_tax( 'post_format', 'post-format-aside' ) ) {
 			$title = esc_html_x( 'Asides', 'post format archive title', '<%= appNameVar %>' );

@@ -4,7 +4,7 @@
  *
  * @package <%= appName %>
  */
-$featured_posts = theme_magazine_get_featured_posts();
+$featured_posts = <%= appNameVar %>_get_featured_posts();
 if ( ! is_home() || empty( $featured_posts ) ) {
 	return;
 }
