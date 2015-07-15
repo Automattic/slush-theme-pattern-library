@@ -13,7 +13,7 @@
 
 get_header(); ?>
 
-	@@if ( '<%= themeType %>' !== 'typeMag' ) {
+	@@if ( '<%= themeType %>' === 'typeMag' ) {
 	<?php
 		if ( is_home() ) {
 			// Include the featured content template.
