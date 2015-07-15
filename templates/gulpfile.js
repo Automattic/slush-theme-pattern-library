@@ -14,10 +14,12 @@ var sass = require( 'gulp-ruby-sass' ),
 var rootFiles = [],
 	incFiles = [],
 	rootComponents = [],
+	stylesheets = [],
 	styleComponents = [],
 	styleLayouts = [],
 	styleShared = [],
-	styleVariables = [];
+	styleVariables = [],
+	scripts = [];
 
 @@if ( '<%= themeType %>' === 'typePortfolio' ) {
 	rootFiles.push(
@@ -27,17 +29,19 @@ var rootFiles = [],
 	);
 	incFiles.push( 'src/types/portfolio/inc/**/*.*' );
 	rootComponents.push( 'src/types/portfolio/components/**/*.*' );
-	styleComponents.push( './src/types/portfolio/assets/stylesheets/components/*.*' );
-	styleShared.push( './src/types/portfolio/assets/stylesheets/shared/*.*' );
+	styleComponents.push( 'src/types/portfolio/assets/stylesheets/components/*.*' );
+	styleShared.push( 'src/types/portfolio/assets/stylesheets/shared/*.*' );
 }
 
 @@if ( '<%= themeType %>' === 'typeBlogModern' ) {
 	rootFiles.push( 'src/types/blog-modern/header.php' );
 	incFiles.push( 'src/types/blog-modern/inc/**/*.*' );
 	rootComponents.push( 'src/types/blog-modern/components/**/*.*' );
-	styleComponents.push( './src/types/blog-modern/assets/stylesheets/components/*.*' );
-	styleLayouts.push( './src/types/blog-modern/assets/stylesheets/layout/*.*' );
-	styleShared.push( './src/types/blog-modern/assets/stylesheets/shared/*.*' );
+	stylesheets.push( 'src/types/blog-modern/assets/stylesheets/style.scss' );
+	styleComponents.push( 'src/types/blog-modern/assets/stylesheets/components/*.*' );
+	styleLayouts.push( 'src/types/blog-modern/assets/stylesheets/layout/*.*' );
+	styleShared.push( 'src/types/blog-modern/assets/stylesheets/shared/*.*' );
+	scripts.push( 'src/types/blog-modern/assets/js/**/*.*' );
 }
 
 @@if ( '<%= themeType %>' === 'typeBlogTraditional' ) {
@@ -45,8 +49,8 @@ var rootFiles = [],
 		'src/types/blog-traditional/sidebar.php',
 		'src/types/blog-traditional/header.php'
 	);
-	styleLayouts.push( './src/types/blog-traditional/assets/stylesheets/layout/*.*' );
-	styleVariables.push( './src/types/blog-traditional/assets/stylesheets/variables/*.*' );
+	styleLayouts.push( 'src/types/blog-traditional/assets/stylesheets/layout/*.*' );
+	styleVariables.push( 'src/types/blog-traditional/assets/stylesheets/variables/*.*' );
 }
 
 @@if ( '<%= themeType %>' === 'typeBusiness' ) {
@@ -78,7 +82,7 @@ gulp.task( 'move:inc', function() {
 });
 
 gulp.task( 'move:root-styles', function() {
-	return gulp.src( 'src/types/blog-modern/assets/stylesheets/style.scss', { base: process.cwd() } )
+	return gulp.src( stylesheets, { base: process.cwd() } )
 		.pipe( rename( { dirname: 'assets/stylesheets' } ) )
 		.pipe( gulp.dest( './' ) )
 });
@@ -108,7 +112,7 @@ gulp.task( 'move:variable-styles', function() {
 });
 
 gulp.task( 'move:scripts', function() {
-	return gulp.src( 'src/types/blog-modern/assets/js/**/*.*', { base: process.cwd() } )
+	return gulp.src( scripts, { base: process.cwd() } )
 		.pipe( rename( { dirname: 'assets/js' } ) )
 		.pipe( gulp.dest( './' ) )
 });
