@@ -6,18 +6,25 @@
  * @package <%= appName %>
  */
 
-/**
- * Add theme support for Infinite Scroll.
- * See: https://jetpack.me/support/infinite-scroll/
- *
- * @since <%= appName %> 1.0
- */
 function <%= appNameVar %>_jetpack_setup() {
+	/**
+	 * Add theme support for Infinite Scroll.
+	 * See: https://jetpack.me/support/infinite-scroll/
+	 *
+	 * @since <%= appName %> 1.0
+	 */
 	add_theme_support( 'infinite-scroll', array(
 		'container' => 'main',
 		'render'    => '<%= appNameVar %>_infinite_scroll_render',
 		'footer'    => 'page',
 	) );
+
+	/**
+	 * Add theme support for Featured Content.
+	 * See: https://jetpack.me/support/featured-content/
+	 *
+	 * @since <%= appName %> 1.0
+	 */
 	add_theme_support( 'featured-content', array(
 		'filter'     => '<%= appNameVar %>_get_featured_posts',
 		'description' => __( 'The featured content section displays on the front page above the header.', '<%= appNameVar %>' ),
