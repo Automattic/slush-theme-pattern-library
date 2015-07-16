@@ -72,12 +72,6 @@ gulp.task('default', function (done) {
         name: 'authorURI',
         message: 'What is the theme author URI?',
         default: 'http://underscores.me'
-    //}, {
-        //type: 'list',
-        //name: 'siteBranding',
-        //message: 'Do you want to include site branding?',
-        //choices: ['Yes', 'No'],
-        //default: 'Yes'
     }, {
         type: 'checkbox',
         name: 'themeType',
@@ -132,7 +126,6 @@ gulp.task('default', function (done) {
                     prefix: '@@',
                     basepath: __dirname + '/templates',
                     context: {
-                        //siteBranding: answers.siteBranding,
 						themeType: answers.themeType
                     }
                 }))
