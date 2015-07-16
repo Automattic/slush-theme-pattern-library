@@ -18,6 +18,11 @@ function <%= appNameVar %>_jetpack_setup() {
 		'render'    => '<%= appNameVar %>_infinite_scroll_render',
 		'footer'    => 'page',
 	) );
+	add_theme_support( 'featured-content', array(
+		'filter'     => '<%= appNameVar %>_get_featured_posts',
+		'description' => __( 'The featured content section displays on the front page above the header.', '<%= appNameVar %>' ),
+		'max-posts'  => 5,
+	) );
 } // end function <%= appNameVar %>_jetpack_setup
 add_action( 'after_setup_theme', '<%= appNameVar %>_jetpack_setup' );
 
