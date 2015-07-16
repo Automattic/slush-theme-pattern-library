@@ -34,7 +34,7 @@ A more in-depth set of instructions can be found at the official [Sass docs](htt
 Lastly, you will need to install the generator itself, via the following command:
 
 ```bash
-$ npm install -g gulp slush-theme-patterns
+$ npm install -g slush-theme-patterns
 ```
 
 *If you are receiving a permissions error, you may need to run these installation commands as `sudo`. For example, `sudo npm install -g gulp`.
