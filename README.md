@@ -31,19 +31,10 @@ $ sudo gem install sass
 
 A more in-depth set of instructions can be found at the official [Sass docs](http://sass-lang.com/install).
 
-Once you have all of the dependencies installed, you'll want to clone this repository (this is a temporary step and will not be needed once the generator is moved to a public [NPM](https://www.npmjs.com/) package).
+Lastly, you will need to install the generator itself, via the following command:
 
 ```bash
-$ git clone git@github.com:Automattic/slush-theme-pattern-library.git
-```
-
-Note that, performing Git operations over HTTPS may require you to [create a personal access token](https://help.github.com/articles/creating-an-access-token-for-command-line-use/).
-I would recommend cloning via SSH (with the above `git@github.com:...` link).
-
-Now, go into that directory, install your project NPM dependencies, and link it with NPM (this is _also_ a temporary step and will not be needed once the generator is moved to a public [NPM](https://www.npmjs.com/) package).
-
-```bash
-$ cd slush-theme-pattern-library && npm install --save && npm link
+$ npm install -g gulp slush-theme-patterns
 ```
 
 *If you are receiving a permissions error, you may need to run these installation commands as `sudo`. For example, `sudo npm install -g gulp`.
